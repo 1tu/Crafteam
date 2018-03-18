@@ -1,6 +1,6 @@
 # gogo
 
-> Nuxt.js project
+> Nuxt.js TypeScript project
 
 ## Build Setup
 
