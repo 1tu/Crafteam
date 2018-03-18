@@ -1,0 +1,26 @@
+{
+  "port": 4000,
+  "paths": {
+    "app": {
+      "assets": {
+        "images": {},
+        "fonts": {}
+      },
+      "scripts": {
+        "folder": "..",
+        "files": "**/*.ts",
+        "app": {
+          "folder": "..",
+          "files": "app.ts"
+        }
+      }
+    },
+    "dist": {
+      "assets": {
+        "images": {},
+        "fonts": {}
+      },
+      "scripts": {}
+    }
+  }
+}

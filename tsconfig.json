@@ -7,14 +7,23 @@
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
     "baseUrl": ".",
+    "allowJs": true,
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["./"],
+      "~/assets/*": ["./assets/*"],
+      "~/components/*": ["./components/*"],
+      "~/middleware/*": ["./middleware/*"],
+      "~/pages/*": ["./pages/*"],
+      "~/plugins/*": ["./plugins/*"],
+      "~/static/*": ["./static/*"],
+      "~/store/*": ["./store/*"],
+      "~/utils/*": ["./utils/*"],
+      "~/test/*": ["./test/*"]
     }
   }
 }
