@@ -9,3 +9,5 @@ dist/
 
 # Packages folders
 node_modules/
+
+.sources/
