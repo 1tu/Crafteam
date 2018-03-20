@@ -1,11 +1,13 @@
-# dependencies
-node_modules
-
-# logs
+# Temporary folders and files
+.sass-cache/
+.test/
+.vscode/
 npm-debug.log
 
-# Nuxt build
-.nuxt
+# Distribution folders
+dist/
 
-# Nuxt generate
-dist
+# Packages folders
+node_modules/
+
+.sources/
