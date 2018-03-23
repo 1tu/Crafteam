@@ -5,19 +5,23 @@ const { paths, environments } = require('./tasks/config/options');
 const _ = require('./tasks/config/helpers');
 
 let rules = require('require.all')('./tasks/rules');
-
 let environment = process.env.NODE_ENV;
 process.env.NODE_ENV = JSON.stringify(environment);
+require('dotenv').config({ path: './config/' + environment + '.env' });
 
 rules((name, rule) => rule(environment, environments));
 
 // Define global plugins
 let plugins = [];
 
-const port = process.env.PORT || process.env.npm_package_config_nuxt_port || '3000';
+const port = process.env.PORT;
+const host = process.env.HOST;
+// const baseUrl = '/';
+const baseUrl = process.env.BASE_URL || `http://${host}${port ? ':' + port : ''}/`;
+const baseApiUrl = baseUrl + 'api/';
+const shopDomain = process.env.SHOP_DOMAIN;
 
-const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost';
-
+const serverBaseUrl = process.env.SERVER;
 // Add non-test environment plugins
 const testPlugins = [
   new webpack.DefinePlugin({
@@ -34,8 +38,11 @@ module.exports = {
   env: {
     type: environment,
     host,
+    serverBaseUrl,
     port,
-    baseUrl: process.env.BASE_URL || `http://${host}:${port}`
+    baseUrl,
+    baseApiUrl,
+    shopDomain
   },
   head: {
     title: 'My app',
@@ -52,6 +59,6 @@ module.exports = {
     rules: [rules.scriptsLint, rules.scripts, rules.html],
     plugins: []
   },
-  // plugins: ['~/plugins/i18n.js'],
+  // plugins: ['~/plugins/axios.js'],
   modules: ['~/modules/typescript', '@nuxtjs/axios', '@nuxtjs/component-cache']
 };

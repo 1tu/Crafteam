@@ -2,10 +2,12 @@
 const { Nuxt, Builder } = require('nuxt');
 
 const app = require('express')();
+const api = require('./api');
 
-const config = require('./nuxt.config.js');
+const config = require('../nuxt.config.js');
 const nuxt = new Nuxt(config);
 
+app.use('/api', api);
 // Give nuxt middleware to express
 app.use(nuxt.render);
 

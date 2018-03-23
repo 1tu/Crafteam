@@ -21,14 +21,17 @@
     "postprod": "rimraf ./dist/css/scripts",
     "predev": "gulp --env=development",
     "dev": "cross-env NODE_ENV=development nuxt build",
-    "start": "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development node server.js\" --names \"🥛,📦\" --prefix name --kill-others",
-    "start:nuxt": "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development nuxt\" --names \"🥛,📦\" --prefix name --kill-others"
+    "start":
+      "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development node server/server.js\" --names \"🥛,📦\" --prefix name --kill-others",
+    "start:nuxt":
+      "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development nuxt\" --names \"🥛,📦\" --prefix name --kill-others"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.1.1",
     "@nuxtjs/component-cache": "^1.1.1",
     "@nuxtjs/google-analytics": "^2.0.2",
     "babel-polyfill": "^6.26.0",
+    "dotenv": "^5.0.1",
     "express": "4.16.3",
     "normalize-scss": "^7.0.1",
     "nuxt": "1.4.0",

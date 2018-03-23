@@ -1,7 +1,6 @@
 <template lang='pug'>
   section.test {{ todayName }}
     Loading(active)
-    Menu(:linkList='menu' @zzk='log' :test='ss')
 </template>
 
 <script lang='ts'>
@@ -10,7 +9,6 @@ import Vue from 'vue';
 
 import Loading from '../components/Loading.vue';
 import Menu from '../components/Menu.vue';
-import { mainMenu } from '../shared/menu.variables';
 import { RootGetter, RootState, RootMutation, RootMutation } from '../store/root.store';
 import { setTimeout } from 'timers';
 
@@ -20,7 +18,6 @@ export default class extends Vue {
   @RootGetter todayName;
   @RootMutation setAppName;
 
-  public menu = mainMenu;
   public ss = 'fsafafsfasfsf';
 
   public log(data) {
@@ -29,7 +26,6 @@ export default class extends Vue {
 
   public created(): void {
     setTimeout(() => {
-      this.menu = [];
       this.active = false;
     }, 2000);
   }

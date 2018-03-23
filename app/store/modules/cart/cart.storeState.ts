@@ -1,6 +1,8 @@
+import { ProductEntity } from '../../../shared/types/product.entity';
+
 export interface CartItem {
   count: number;
-  product: any;
+  product: ProductEntity;
 }
 
 export interface CartStoreState {
