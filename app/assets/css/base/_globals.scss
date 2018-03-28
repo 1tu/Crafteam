@@ -21,4 +21,40 @@ body {
   @media screen and (max-width: $media-screen-s) {
     font-size: $font-size * 0.65;
   }
+  h2 {
+    color: #666;
+    size: 24px;
+    font-weight: 700;
+    margin-bottom: 35px;
+  }
+  table {
+    width: 100%;
+    color: #a9a9a9;
+    font-weight: 300;
+    th {
+      background-color: #f1f1f1;
+      padding: 10px;
+      font-weight: 300;
+      text-align: left;
+    }
+    td {
+      border-left-width: 1px;
+      border-left-color: #f1f1f1;
+      border-left-style: solid;
+      border-right-width: 1px;
+      border-right-color: #f1f1f1;
+      border-right-style: solid;
+      padding: 10px;
+      &:last-child {
+        border-bottom-width: 1px;
+        border-bottom-color: #f1f1f1;
+        border-bottom-style: solid;
+      }
+    }
+    tr {
+      &:nth-child(odd) {
+        background-color: #f8f8f8;
+      }
+    }
+  }
 }

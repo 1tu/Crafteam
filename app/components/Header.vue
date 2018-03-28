@@ -54,7 +54,7 @@
                 .info-phone.col-md-2.col-sm-3.col-xs-6
                     p Тел.:
                         a(href="tel:88043337060", title="88043337060")  8 (804) 333-70-60
-                    a(href="84953000000", title="84953000000")  8 (495) 300-00-00
+                    a(href="tel:84953000000", title="84953000000")  8 (495) 300-00-00
                     p.info-phone-dop Звонок по России бесплатный
                 .info-mail.col-md-3.col-sm-12.col-xs-12
                     p E-mail:
