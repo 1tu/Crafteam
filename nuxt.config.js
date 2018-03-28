@@ -19,7 +19,7 @@ const host = process.env.HOST;
 // const baseUrl = '/';
 const baseUrl = process.env.BASE_URL || `http://${host}${port ? ':' + port : ''}/`;
 const baseApiUrl = baseUrl + 'api/';
-const shopDomain = process.env.SHOP_DOMAIN;
+const shopHost = process.env.SHOP_HOST;
 
 const serverBaseUrl = process.env.SERVER;
 // Add non-test environment plugins
@@ -42,7 +42,7 @@ module.exports = {
     port,
     baseUrl,
     baseApiUrl,
-    shopDomain
+    shopHost
   },
   head: {
     title: 'My app',

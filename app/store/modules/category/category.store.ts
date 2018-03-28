@@ -16,7 +16,11 @@ const state = (): CategoryStoreState => ({
 });
 const pureState = state();
 
-const getters = getter(pureState, {});
+const getters = getter(pureState, {
+  idByNameTranslit(state) {
+    return (name: string) => (state.listBase.find(c => c.nameTranslit === name) || ({} as CategoryEntity)).id;
+  }
+});
 
 const mutations = mutation(pureState, {
   listBase(state, listBase: CategoryEntity[]) {
@@ -35,8 +39,9 @@ const mutations = mutation(pureState, {
 
 const actions = action(pureState, {
   async init({ commit, rootState }) {
-    const res = await axios.get(rootState.baseApiUrl + 'category/listBase', { params: { shopId: rootState.shop.id } });
+    const res = await axios.get(rootState.baseApiUrl + 'category/listBase');
     commit(types.mutation.listBase, res.data);
+    return res.data;
   },
   async getListByBase({ commit, dispatch, rootState }, categoryId: number) {
     const res = await axios.get(rootState.baseApiUrl + 'category/listByBaseId', { params: { categoryId } });
@@ -46,10 +51,12 @@ const actions = action(pureState, {
   async getPropList({ commit, state, rootState }) {
     const res = await axios.get(rootState.baseApiUrl + 'property/listCategoryIds', { params: { categoryIds: state.list.map(c => c.id) } });
     commit(types.mutation.item, res.data);
+    return res.data;
   },
   async getItemByName({ commit, rootState }, nameTranslit: number) {
     const res = await axios.get(rootState.baseApiUrl + 'category/byNameTranslit', { params: { nameTranslit } });
     commit(types.mutation.item, res.data);
+    return res.data;
   }
 });
 

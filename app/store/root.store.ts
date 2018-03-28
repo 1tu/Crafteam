@@ -33,12 +33,15 @@ const actions = action(pureState, {
     commit(types.mutation.baseApiUrl, ctx.env.baseApiUrl);
     const city = (ctx.req ? (ctx.req.headers as any).host : window.location.host.split(':')[0]).split('.')[0];
     const res = await Promise.all([
-      axios.get(ctx.env.baseApiUrl + 'shop/byDomain', { params: { domain: ctx.env.shopDomain } }),
+      axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: ctx.env.shopHost } }),
       axios.get(ctx.env.baseApiUrl + 'city/byNameTranslit', { params: { nameTranslit: city } })
     ]);
+    if (!res[0].data.cityList.find(c => c.nameTranslit === city)) {
+      ctx.error({ statusCode: 400, message: 'Нет такого города' });
+    }
     commit(types.mutation.shop, res[0].data);
     commit(types.mutation.city, res[1].data);
-    await dispatch('Category/init');
+    return dispatch('Category/init');
   }
 });
 
