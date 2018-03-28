@@ -12,3 +12,9 @@
 @include font-include(OpenSans, LightItalic, $font-weight-light, italic);
 @include font-include(OpenSans, SemiBold, $font-weight-semibold, normal);
 @include font-include(OpenSans, SemiBoldItalic, $font-weight-semibold, italic);
+
+@include font-include(Lato, Bold, $font-weight-bold, normal);
+@include font-include(Lato, Regular, $font-weight-normal, normal);
+@include font-include(Lato, Light, $font-weight-light, normal);
+
+@include font-include(ProximaNova, Light, $font-weight-light, normal);

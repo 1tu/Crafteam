@@ -4,16 +4,21 @@ html,
 body {
   $font-size: 16px;
 
-  font-family: OpenSans;
+  font-family: Lato;
   font-size: $font-size;
   height: 100%;
   width: 100%;
+  color: $color-brand-text;
+
+  p {
+    margin: 0;
+  }
 
   @media screen and (max-width: $media-screen-m) {
-    font-size: $font-size * .8;
+    font-size: $font-size * 0.8;
   }
 
   @media screen and (max-width: $media-screen-s) {
-    font-size: $font-size * .65;
+    font-size: $font-size * 0.65;
   }
 }

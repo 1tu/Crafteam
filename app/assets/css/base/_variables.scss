@@ -1,27 +1,29 @@
 // Colors
-$color-brand: #1ABC9C;
+$color-brand: #00bfed;
 $color-brand-dark: darken($color-brand, 10%);
 $color-brand-darker: darken($color-brand, 20%);
 $color-brand-bright: lighten($color-brand, 10%);
 $color-brand-brighter: lighten($color-brand, 20%);
-$color-secondary: #5969DC;
+$color-secondary: #5969dc;
 $color-secondary-dark: darken($color-secondary, 10%);
 $color-secondary-darker: darken($color-secondary, 20%);
 $color-secondary-bright: lighten($color-secondary, 10%);
 $color-secondary-brighter: lighten($color-secondary, 20%);
 $color-background-dark: #333333;
 $color-background-darker: #000000;
-$color-background-bright: #2F4256;
-$color-background-brighter: #35495F;
+$color-background-bright: #2f4256;
+$color-background-brighter: #35495f;
 $color-foreground-dark: #333333;
 $color-foreground-darker: #000000;
-$color-foreground-bright: #969DA6;
-$color-foreground-brighter: #FFFFFF;
+$color-foreground-bright: #969da6;
+$color-foreground-brighter: #ffffff;
+$color-brand-text: #666666;
+$color-secondary-text: #a9a9a9;
 
 // Animations
-$animation-speed-default: .35s;
-$animation-speed-slow: .5s;
-$animation-speed-fast: .15s;
+$animation-speed-default: 0.35s;
+$animation-speed-slow: 0.5s;
+$animation-speed-fast: 0.15s;
 
 // Fonts
 $font-weight-light: 200;
@@ -30,11 +32,11 @@ $font-weight-normal: 400;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-black: 800;
-$font-size-xs: .5rem;    // 8px
-$font-size-s: .85rem;    // 13.6px
-$font-size-m: 1rem;      // [16px]
-$font-size-l: 1.25rem;   // 20px
-$font-size-xl: 1.5rem;   // 24px
+$font-size-xs: 0.5rem; // 8px
+$font-size-s: 0.85rem; // 13.6px
+$font-size-m: 1rem; // [16px]
+$font-size-l: 1.25rem; // 20px
+$font-size-xl: 1.5rem; // 24px
 
 // Medias
 $media-screen-xxs: 22.5em; // 360px

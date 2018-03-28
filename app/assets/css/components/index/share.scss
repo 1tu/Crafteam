@@ -1,0 +1,19 @@
+.share {
+  margin-bottom: 100px;
+  &-container {
+    border-radius: 10px;
+    background-color: #00bce9;
+    color: #fff;
+    padding: 40px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 0;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
