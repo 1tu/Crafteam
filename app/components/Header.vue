@@ -5,10 +5,10 @@
                 ul.info-menu.row
                     li.info-menu-el.col-md-2
                         nuxt-link(to='/nashi-klienty') Наши клиенты
-                            //- img(src='~assets/images/infoMenu/nashi-klienty.png') 
+                            img(src='~/assets/images/infoMenu/nashi-klienty.png') 
                     li.info-menu-el.col-md-2
                         nuxt-link(to='/o-kompanii') О компании
-                            //- img(src='~assets/images/infoMenu/o-kompanii.png') 
+                            //- img(src='/assets/images/infoMenu/o-kompanii.png') 
                     li.info-menu-el.col-md-2
                         nuxt-link(to='/oplata') Оплата
                             //- img(src='~assets/images/infoMenu/oplata.png') 
@@ -72,7 +72,7 @@
                     li.main-menu-item.col-md-1.col-xs-2
                         nuxt-link(to='/uslugi') Услуги
                     li.main-menu-item.col-md-3.col-xs-2
-                        nuxt-link(to='/katalog') Каталог товаров
+                        nuxt-link(to='/katalog/tablichki') Каталог товаров
                     li.main-menu-item.col-md-2.col-xs-2
                         nuxt-link(to='/portfolio') Портфолио
                     li.main-menu-item.col-md-3.col-xs-2
