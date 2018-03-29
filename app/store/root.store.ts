@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { Action as vAction, Getter as vGetter, Mutation as vMutation, namespace, State as vState } from 'vuex-class';
 
-import { Context } from '../typings/nuxt';
 import { State as rootState } from './root.storeState';
 import { action, decorator, getter, keymirror, mutation } from './vuexTypes';
 import { ShopEntity } from '../shared/types/shop.entity';
 import { CityEntity } from '../shared/types/city.entity';
+import { Context } from '../typings/nuxt';
+import { SeoMetaEntity } from '../shared/types/seoMeta.entity';
+import { tText } from '../shared/helpers/tText';
 
 const state = (): rootState => ({
   baseApiUrl: null,
@@ -14,7 +16,20 @@ const state = (): rootState => ({
 });
 const pureState = state();
 
-const getters = getter(pureState, {});
+const getters = getter(pureState, {
+  head(state) {
+    return (meta: SeoMetaEntity) => ({
+      title: tText(meta.title, state.city, meta),
+      meta: [
+        { hid: 'description', name: 'description', content: tText(meta.description, state.city, meta) },
+        { hid: 'keywords', name: 'keywords', content: tText(meta.keywords, state.city, meta) }
+      ]
+    });
+  },
+  tText(state) {
+    return (text: string, meta: SeoMetaEntity) => tText(text, state.city, meta);
+  }
+});
 
 const mutations = mutation(pureState, {
   baseApiUrl(state, baseApiUrl: string) {

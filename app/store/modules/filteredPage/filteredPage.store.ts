@@ -46,7 +46,7 @@ const types = {
 export const FilteredPageStore = { namespaced: true, name, state, getters, mutations, actions };
 
 export const FilteredPageTypes = types;
-export const FilteredPageState = decorator(namespace(null, vState), types.state);
-export const FilteredPageGetter = decorator(namespace(null, vGetter), types.getter);
-export const FilteredPageMutation = decorator(namespace(null, vMutation), types.mutation);
-export const FilteredPageAction = decorator(namespace(null, vAction), types.action);
+export const FilteredPageState = decorator(namespace(name, vState), types.state);
+export const FilteredPageGetter = decorator(namespace(name, vGetter), types.getter);
+export const FilteredPageMutation = decorator(namespace(name, vMutation), types.mutation);
+export const FilteredPageAction = decorator(namespace(name, vAction), types.action);

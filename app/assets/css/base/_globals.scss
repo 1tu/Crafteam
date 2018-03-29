@@ -90,3 +90,16 @@ body {
     line-height: 13px;
   }
 }
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+// стили для контента из WYSIWYG редактора
+.editor {
+  h1 {
+    font-size: 20px;
+  }
+}

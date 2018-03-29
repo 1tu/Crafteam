@@ -15,13 +15,15 @@
   "author": "Skripko Andrey <itu.ccb@gmail.com>",
   "private": true,
   "scripts": {
+    "generate": "cross-env NODE_ENV=production nuxt generate",
     "test": "mocha-webpack",
     "preprod": "gulp --env=production",
     "prod": "cross-env NODE_ENV=production nuxt build",
     "postprod": "rimraf ./dist/css/scripts",
     "predev": "gulp --env=development",
     "dev": "cross-env NODE_ENV=development nuxt build",
-    "start": "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development node server/server.js\" --names \"🥛,📦\" --prefix name --kill-others",
+    "start":
+      "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development node server/server.js\" --names \"🥛,📦\" --prefix name --kill-others",
     "start:nuxt": "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development nuxt\" --names \"🥛,📦\" --prefix name --kill-others"
   },
   "dependencies": {
@@ -35,6 +37,7 @@
     "normalize-scss": "^7.0.1",
     "nuxt": "1.4.0",
     "nuxt-class-component": "1.2.0",
+    "nuxt-cli": "0.0.1",
     "vue": "2.5.16",
     "vue-class-component": "6.2.0",
     "vuex-class": "0.3.0"

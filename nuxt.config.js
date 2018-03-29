@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 const { paths, environments } = require('./tasks/config/options');
 const _ = require('./tasks/config/helpers');
+const routeList = require('./routeList');
 
 let rules = require('require.all')('./tasks/rules');
 let environment = process.env.NODE_ENV;
@@ -34,6 +35,7 @@ if (environment !== environments.test) {
 }
 
 module.exports = {
+  // generate: { routes: routeList },
   dev: environment !== environments.production,
   env: {
     type: environment,
@@ -60,5 +62,15 @@ module.exports = {
     plugins: []
   },
   // plugins: ['~/plugins/axios.js'],
-  modules: ['~/modules/typescript', '@nuxtjs/axios', '@nuxtjs/component-cache']
+  modules: [
+    '~/modules/typescript',
+    '@nuxtjs/axios',
+    [
+      '@nuxtjs/component-cache',
+      {
+        max: 10000,
+        maxAge: 1000 * 60 * 60 * 24
+      }
+    ]
+  ]
 };

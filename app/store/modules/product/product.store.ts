@@ -33,6 +33,7 @@ const actions = action(pureState, {
   async getListByFilter({ commit, dispatch, rootState }, { categoryIds, propKeyValues }) {
     const res = await axios.get(rootState.baseApiUrl + 'product/listByFilter', { params: { categoryIds, propKeyValues } });
     commit(types.mutation.list, res.data);
+    console.log(res.data);
   }
 });
 
@@ -46,7 +47,7 @@ const types = {
 export const ProductStore = { namespaced: true, name, state, getters, mutations, actions };
 
 export const ProductTypes = types;
-export const ProductState = decorator(namespace(null, vState), types.state);
-export const ProductGetter = decorator(namespace(null, vGetter), types.getter);
-export const ProductMutation = decorator(namespace(null, vMutation), types.mutation);
-export const ProductAction = decorator(namespace(null, vAction), types.action);
+export const ProductState = decorator(namespace(name, vState), types.state);
+export const ProductGetter = decorator(namespace(name, vGetter), types.getter);
+export const ProductMutation = decorator(namespace(name, vMutation), types.mutation);
+export const ProductAction = decorator(namespace(name, vAction), types.action);

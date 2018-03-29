@@ -1,6 +1,7 @@
 import { CategoryEntity } from '../../../shared/types/category.entity';
 
 export interface CategoryStoreState {
+  currentBaseId: number;
   listBase: CategoryEntity[];
   list: CategoryEntity[];
   item: CategoryEntity;
@@ -10,7 +11,7 @@ export interface CategoryStoreState {
 export interface PropItem {
   name: string;
   key: string;
-  valueList: PropItemValue[];
+  options: PropItemValue[];
 }
 
 export interface PropItemValue {

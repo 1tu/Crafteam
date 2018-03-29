@@ -1,51 +1,71 @@
 <template lang="pug">
-  section 
+  .container.clearfix
     PageHeader(:breadcrumbs='breadcrumbs')
-    div katalog. главная категория без фильтров {{ Object.keys($route) }}
-    div {{  $store.state.shop }}
-    hr
-    div {{ $store.state.Category.listBase }}
-    hr
-    div {{ $store.state.city }}
-    hr
-    div {{ $store.state.Category.list }}
-    hr
-    div {{ $store.state.FilteredPage.list }}
+    main.main
+      ProductFilter.filter
+      .body 
+        h1.title {{ $store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.h1, $store.state.Category.item.seoList[0].seoMeta) }}
+        .editor(v-html='$store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.content, $store.state.Category.item.seoList[0].seoMeta)')
+        ProductList
 </template>
 
 <script lang='ts'>
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
-import axios from 'axios';
 import PageHeader from '../../../components/PageHeader.vue';
+import ProductFilter from '../../../components/ProductFilter.vue';
+import ProductList from '../../../components/ProductList.vue';
 
 import { Context } from '../../../typings/nuxt';
-import { urlMap, breadcrumbsBase } from '../../../shared/data/router.data';
-import { RootState } from '../../../store/root.store';
-import { CategoryAction } from '../../../store/modules/category';
-import { FilteredPageAction } from '../../../store/modules/filteredPage';
+import { breadcrumbsBase } from '../../../shared/data/router.data';
 
 @Component({
-  components: { PageHeader }
+  components: { PageHeader, ProductFilter, ProductList }
 })
 export default class extends Vue {
-  @CategoryAction getListByBase;
-  @CategoryAction getPropList;
-  @FilteredPageAction getListByCategoryId;
-
   async asyncData(ctx: Context) {
     const route = ctx.route.fullPath.slice(1).split('/');
     const baseCategoryName = route[route.length - 1];
     const baseCategoryId = ctx.store.getters['Category/idByNameTranslit'](baseCategoryName);
     const breadcrumbs = breadcrumbsBase.slice().concat([{ name: 'Каталог', link: null }, { name: baseCategoryName, link: null }]);
-    console.log(baseCategoryName, baseCategoryId, ctx.store.state.Category.listBase);
 
-    await Promise.all([ctx.store.dispatch('Category/getListByBase', baseCategoryId), ctx.store.dispatch('FilteredPage/getListByCategoryId', baseCategoryId)]);
+    await Promise.all([
+      ctx.store.dispatch('Category/getListByBase', baseCategoryId),
+      ctx.store.dispatch('Category/getItemByName', baseCategoryName),
+      ctx.store.dispatch('FilteredPage/getListByCategoryId', baseCategoryId)
+    ]);
     return { breadcrumbs };
   }
 
-  public created() {
-    //
+  head() {
+    return {
+      ...this.$store.getters['Category/head']
+    };
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+.main {
+  padding: 60px 0;
+}
+.filter {
+  float: left;
+  width: 250px;
+}
+.body {
+  padding-left: 280px;
+}
+.title {
+  color: #666666;
+  font-size: 24px;
+}
+.description {
+  color: #a9a9a9;
+  font-size: 14px;
+}
+</style>
