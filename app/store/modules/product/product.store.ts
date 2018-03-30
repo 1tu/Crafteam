@@ -9,6 +9,7 @@ import { RootTypes } from '../../root.store';
 
 const name = 'Product';
 const state = (): ProductStoreState => ({
+  isListLoading: false,
   list: [],
   item: null
 });
@@ -22,6 +23,9 @@ const mutations = mutation(pureState, {
   },
   item(state, item: ProductEntity) {
     state.item = item;
+  },
+  listLoading(state, isLoading: boolean) {
+    state.isListLoading = isLoading;
   }
 });
 
@@ -30,10 +34,12 @@ const actions = action(pureState, {
     const res = await axios.get(rootState.baseApiUrl + 'product/byId', { params: { id } });
     commit(types.mutation.item, res.data);
   },
-  async getListByFilter({ commit, dispatch, rootState }, { categoryIds, propKeyValues }) {
-    const res = await axios.get(rootState.baseApiUrl + 'product/listByFilter', { params: { categoryIds, propKeyValues } });
+  async getListByFilter({ commit, dispatch, rootState }, { categoryIdList, propertyKeyValueList }) {
+    commit(types.mutation.list, []);
+    commit(types.mutation.listLoading, true);
+    const res = await axios.get(rootState.baseApiUrl + 'product/listByFilter', { params: { categoryIdList, propertyKeyValueList } });
     commit(types.mutation.list, res.data);
-    console.log(res.data);
+    commit(types.mutation.listLoading, false);
   }
 });
 

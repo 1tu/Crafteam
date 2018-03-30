@@ -12,6 +12,7 @@
           option(value='10') 10
           option(value='25') 25
     
+    p(v-if='$store.state.Product.isListLoading') Загрузка...
     ProductCard(v-for='item in $store.state.Product.list' :data='item' :key='item.id')
 </template>
 

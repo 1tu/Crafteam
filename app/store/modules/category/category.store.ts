@@ -6,7 +6,7 @@ import { CategoryStoreState, PropItem } from './Category.storeState';
 import { CategoryEntity } from '../../../shared/types/category.entity';
 import { Context } from '../../../typings/nuxt';
 import { RootTypes } from '../../root.store';
-import { tText } from '../../../shared/helpers/tText';
+import { tText } from '../../../shared/helpers/tText.helper';
 
 const name = 'Category';
 const state = (): CategoryStoreState => ({
@@ -67,7 +67,7 @@ const actions = action(pureState, {
     commit(types.mutation.propList, res.data);
     return res.data;
   },
-  async getItemByName({ commit, rootState }, nameTranslit: number) {
+  async getItemByName({ commit, rootState }, nameTranslit: string) {
     const res = await axios.get(rootState.baseApiUrl + 'category/byNameTranslit', { params: { nameTranslit } });
     commit(types.mutation.item, res.data);
     return res.data;

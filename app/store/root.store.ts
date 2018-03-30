@@ -7,7 +7,7 @@ import { ShopEntity } from '../shared/types/shop.entity';
 import { CityEntity } from '../shared/types/city.entity';
 import { Context } from '../typings/nuxt';
 import { SeoMetaEntity } from '../shared/types/seoMeta.entity';
-import { tText } from '../shared/helpers/tText';
+import { tText } from '../shared/helpers/tText.helper';
 
 const state = (): rootState => ({
   baseApiUrl: null,

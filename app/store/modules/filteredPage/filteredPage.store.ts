@@ -2,10 +2,11 @@ import { Action as vAction, Getter as vGetter, Mutation as vMutation, namespace,
 import axios from 'axios';
 
 import { action, decorator, getter, keymirror, mutation } from '../../vuexTypes';
-import { FilteredPageStoreState, PropItem } from './FilteredPage.storeState';
+import { FilteredPageStoreState } from './FilteredPage.storeState';
 import { FilteredPageEntity } from '../../../shared/types/filteredPage.entity';
 import { Context } from '../../../typings/nuxt';
 import { RootTypes } from '../../root.store';
+import { ProductTypes } from '../product';
 
 const name = 'FilteredPage';
 const state = (): FilteredPageStoreState => ({
@@ -14,7 +15,11 @@ const state = (): FilteredPageStoreState => ({
 });
 const pureState = state();
 
-const getters = getter(pureState, {});
+const getters = getter(pureState, {
+  head(state, getters, rootState, rootGetters) {
+    return rootGetters.head(state.item.seoMeta);
+  }
+});
 
 const mutations = mutation(pureState, {
   list(state, list: FilteredPageEntity[]) {
@@ -30,7 +35,7 @@ const actions = action(pureState, {
     const res = await axios.get(rootState.baseApiUrl + 'filteredPage/byUrl', { params: { url } });
     commit(types.mutation.item, res.data);
   },
-  async getListByCategoryId({ commit, dispatch, rootState }, categoryId: number) {
+  async getListByCategoryId({ commit, rootState }, categoryId: number) {
     const res = await axios.get(rootState.baseApiUrl + 'filteredPage/listByCategoryId', { params: { categoryId } });
     commit(types.mutation.list, res.data);
   }
