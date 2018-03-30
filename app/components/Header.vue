@@ -254,6 +254,7 @@ a {
   color: #a9a9a9;
   .main-menu {
     list-style: none;
+    margin-left: 0;
     .main-menu-item {
       a {
         color: #ffffff;

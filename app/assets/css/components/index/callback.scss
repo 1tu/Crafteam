@@ -96,3 +96,12 @@
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .callback input,
+  .callback button {
+    display: block;
+  }
+  .callback button {
+    margin-bottom: 10px;
+  }
+}

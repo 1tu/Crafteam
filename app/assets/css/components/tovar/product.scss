@@ -1,0 +1,379 @@
+h1 {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 35px;
+}
+.product {
+  font-weight: 300;
+}
+.product-calc {
+  margin-bottom: 100px;
+}
+.product-form,
+.product-prop {
+  display: inline-block;
+  vertical-align: top;
+}
+.product-form {
+  width: 49%;
+  margin-right: 35px;
+  & .product-slider {
+    img {
+      width: 100%;
+    }
+  }
+}
+.product-prop {
+  width: 47%;
+}
+.slide {
+  img {
+    height: 100%;
+  }
+}
+.recommend {
+  h4 {
+    color: #535350;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  p {
+    color: #a9a9a9;
+    font-size: 14px;
+  }
+}
+.product-prop {
+  section {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    font-size: 14px;
+    .tab-content {
+      padding: 25px;
+      p {
+        padding-bottom: 10px;
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 20px;
+      }
+    }
+  }
+  .in-stock {
+    float: right;
+  }
+}
+.product-prop-top {
+  margin-bottom: 15px;
+}
+.tabs {
+  .tab {
+    padding: 5px 25px;
+    display: inline-block;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #d1d1d1;
+    color: #fff;
+
+    &.active {
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      background-color: #f1f1f1;
+      color: #545350;
+    }
+  }
+}
+
+.prop-type {
+  margin: 25px 0;
+  &_checkbox {
+    display: none;
+  }
+  & label {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
+.checkbox {
+  position: relative;
+  border-radius: 50%;
+  border-width: 1px;
+  border-color: #e8e8e8;
+  border-style: solid;
+  background-color: #ffffff;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  &_label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+}
+.in-stock {
+  .checkbox {
+    position: relative;
+    border-radius: 50%;
+    border-width: 1px;
+    border-color: #a1cd03;
+    border-style: solid;
+    background-color: #a1cd03;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    &_label {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+  }
+  .prop-type_checkbox:checked + .checkbox {
+    border-color: #a1cd03;
+  }
+
+  .prop-type_checkbox:checked + .checkbox:after {
+    position: absolute;
+    content: '';
+    border: 1px solid #fff;
+    width: 8px;
+    transform: rotate(45deg);
+    bottom: 6px;
+    left: 3px;
+  }
+
+  .prop-type_checkbox:checked + .checkbox:before {
+    position: absolute;
+    content: '';
+    border: 1px solid #fff;
+    height: 13px;
+    transform: rotate(30deg);
+    right: 6px;
+    bottom: 3px;
+  }
+}
+
+.prop-type_checkbox:checked + .checkbox {
+  border-color: #00b5c5;
+}
+
+.prop-type_checkbox:checked + .checkbox:after {
+  position: absolute;
+  content: '';
+  border: 1px solid #00b5c5;
+  width: 6px;
+  transform: rotate(45deg);
+  bottom: 4px;
+  left: 2px;
+}
+
+.prop-type_checkbox:checked + .checkbox:before {
+  position: absolute;
+  content: '';
+  border: 1px solid #00b5c5;
+  height: 9px;
+  transform: rotate(30deg);
+  right: 4px;
+  bottom: 2px;
+}
+button {
+  display: inline-block;
+  background-color: none;
+  border: none;
+  border-radius: 50px;
+}
+.btn-buy {
+  background-color: #b9d500;
+  width: 140px;
+  height: 30px;
+  color: #fff;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: #00bfed;
+  }
+}
+.btn-cart {
+  border-width: 1px;
+  border-color: #d1d1d1;
+  border-style: solid;
+  width: 190px;
+  height: 30px;
+  color: #fff;
+  float: right;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: #b9d500;
+    border-color: #b9d500;
+  }
+}
+.content {
+  section {
+    border-radius: 3px;
+    background-color: #f1f1f1;
+    padding: 30px;
+    .description-content {
+      margin-bottom: 30px;
+    }
+    iframe {
+      float: right;
+      margin-left: 30px;
+      margin-bottom: 30px;
+      width: 560px;
+    }
+    .share,
+    .advantages {
+      width: 45%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .share {
+      margin-right: 30px;
+    }
+    .point,
+    .courier {
+      width: 45%;
+      display: inline-block;
+      text-align: center;
+    }
+    .delivery-method-block {
+      img {
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+      a {
+        color: #00bfed;
+        &:hover,
+        :focus {
+          color: #00b5c5;
+        }
+      }
+    }
+  }
+}
+.delivery-address {
+  margin-bottom: 75px;
+  h2 {
+    display: inline-block;
+    margin-top: 0;
+  }
+  select {
+    float: right;
+    border-width: 1px;
+    border-color: #e8e8e8;
+    border-style: solid;
+    background-color: #ffffff;
+    width: 637px;
+    height: 30px;
+    border-radius: 30px;
+    padding: 0 20px;
+  }
+  .delivery-map {
+    height: 280px;
+    width: 100%;
+    background-color: #535350;
+  }
+}
+.similar-product,
+.featured-product {
+  margin-bottom: 75px;
+  .similar-product-list,
+  .featured-product-list {
+    text-align: center;
+  }
+  a {
+    width: 19%;
+    margin-right: 5px;
+    display: inline-block;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .delivery-address select {
+    float: none;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .product-form {
+    margin-right: 28px;
+  }
+  .buttons {
+    text-align: center;
+    .btn-buy {
+      margin-bottom: 10px;
+    }
+    .btn-cart {
+      float: none;
+    }
+  }
+  .content section iframe {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-form,
+  .product-prop {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .recommend {
+    display: none;
+  }
+  .content section .share,
+  .content section .advantages {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .promo {
+    img {
+      width: 100%;
+    }
+  }
+  .delivery-address select {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .similar-product a,
+  .featured-product a {
+    width: 33%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 20px;
+  }
+  .product-prop section .tab-content h2 {
+    font-size: 16px;
+  }
+  .product-prop section {
+    font-size: 12px;
+  }
+  .checkbox_label {
+    font-size: 12px;
+  }
+  .tabs .tab {
+    padding: 5px 5px;
+  }
+}
