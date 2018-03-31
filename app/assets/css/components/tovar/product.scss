@@ -27,8 +27,9 @@ h1 {
   width: 47%;
 }
 .slide {
+  margin-bottom: 10px;
   img {
-    height: 100%;
+    width: 100%;
   }
 }
 .recommend {
@@ -49,23 +50,28 @@ h1 {
     font-size: 14px;
     .tab-content {
       padding: 25px;
-      p {
-        padding-bottom: 10px;
-      }
-
       h2 {
         margin-top: 0;
         margin-bottom: 20px;
         font-size: 20px;
+      }
+      label {
+        display: block;
       }
     }
   }
   .in-stock {
     float: right;
   }
+  .product-info {
+    padding-bottom: 20px;
+  }
 }
 .product-prop-top {
   margin-bottom: 15px;
+  p {
+    display: inline-block;
+  }
 }
 .tabs {
   .tab {
@@ -86,7 +92,6 @@ h1 {
 }
 
 .prop-type {
-  margin: 25px 0;
   &_checkbox {
     display: none;
   }
@@ -218,6 +223,7 @@ button {
   }
 }
 .content {
+  margin-bottom: 100px;
   section {
     border-radius: 3px;
     background-color: #f1f1f1;
@@ -245,11 +251,38 @@ button {
       width: 45%;
       display: inline-block;
       text-align: center;
+      img {
+        width: 100%;
+      }
     }
     .delivery-method-block {
       img {
         margin-right: 20px;
         margin-bottom: 20px;
+        max-height: 40px;
+      }
+      a {
+        color: #00bfed;
+        &:hover,
+        :focus {
+          color: #00b5c5;
+        }
+      }
+    }
+    .pay-content {
+      .pay-list {
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        .pay-list-item {
+          width: 19%;
+          margin-right: 5px;
+          display: inline-block;
+          vertical-align: top;
+          img {
+            width: 100%;
+          }
+        }
       }
       a {
         color: #00bfed;
@@ -306,6 +339,9 @@ button {
     float: none;
     margin-bottom: 10px;
   }
+  .delivery-address h2 {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -356,6 +392,9 @@ button {
 @media screen and (max-width: 545px) {
   .similar-product a,
   .featured-product a {
+    width: 33%;
+  }
+  .content section .pay-content .pay-list .pay-list-item {
     width: 33%;
   }
 }
