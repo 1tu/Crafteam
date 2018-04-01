@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const axios = require('axios');
-const config = require('../../nuxt.config');
+const config = require('../nuxt.config');
+const LRU = require('lru-cache');
 const router = Router();
 
 const token = 'b875aba36dc5d56bb32354cd864b1ddcdf52b3fa3eb135cb4a87ca4207d740770f73302e58155f97c441d95a070442a323ab398639ea276358f83602e55d8229';
@@ -19,6 +20,7 @@ const routeList = [
   '/product/listByIds',
   '/product/listByFilter'
 ];
+const cache = LRU({ max: 3000, maxAge: parseInt(process.env.CACHE_DURATION) });
 
 const defaultParams = { token };
 axios.get(config.env.serverBaseUrl + '/shop/byHost', { params: { ...defaultParams, host: config.env.shopHost } }).then(res => {
@@ -27,9 +29,15 @@ axios.get(config.env.serverBaseUrl + '/shop/byHost', { params: { ...defaultParam
 
 routeList.forEach(route => {
   router.get(route, async (req, res, next) => {
-    const params = { ...req.query, ...defaultParams };
-    const result = await axios.get(config.env.serverBaseUrl + route, { params });
-    res.json(result.data);
+    const cached = cache.get(req.url);
+    if (cached) res.json(cached);
+    else {
+      const params = { ...req.query, ...defaultParams };
+      console.log('REQ:', route, params);
+      const result = await axios.get(config.env.serverBaseUrl + route, { params });
+      cache.set(req.url, result.data);
+      res.json(result.data);
+    }
   });
 });
 

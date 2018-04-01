@@ -52,7 +52,7 @@ const actions = action(pureState, {
       axios.get(ctx.env.baseApiUrl + 'city/byNameTranslit', { params: { nameTranslit: city } })
     ]);
     if (!res[0].data.cityList.find(c => c.nameTranslit === city)) {
-      ctx.error({ statusCode: 400, message: 'Нет такого города' });
+      ctx.error({ statusCode: 404, message: 'Нет такого города' });
     }
     commit(types.mutation.shop, res[0].data);
     commit(types.mutation.city, res[1].data);

@@ -6,6 +6,7 @@
       .body 
         h1.title {{ $store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.h1, $store.state.Category.item.seoList[0].seoMeta) }}
         .editor(v-html='$store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.content, $store.state.Category.item.seoList[0].seoMeta)')
+        p {{ $store.state.Category.listBase }}
         ProductList
 </template>
 

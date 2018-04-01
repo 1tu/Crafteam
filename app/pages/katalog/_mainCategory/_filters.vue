@@ -30,10 +30,13 @@ export default class extends Vue {
     const baseCategoryId = ctx.store.getters['Category/idByNameTranslit'](baseCategoryName);
     const breadcrumbs = breadcrumbsBase.slice().concat([{ name: 'Каталог', link: null }, { name: baseCategoryName, link: null }]);
 
-    await ctx.store.dispatch('FilteredPage/getItemByUrl', '/' + route[route.length - 1]);
+    await ctx.store.dispatch('FilteredPage/getItemByUrl', '/' + route.slice(1).join('/'));
+    if (!ctx.store.state.FilteredPage.item) {
+      return ctx.error({ statusCode: 404, message: 'Page not found`' });
+    }
+
     await Promise.all([
       ctx.store.dispatch('Category/getListByBase', baseCategoryId),
-      ctx.store.dispatch('FilteredPage/getListByCategoryId', baseCategoryId),
       ctx.store.dispatch('Product/getListByFilter', ctx.store.state.FilteredPage.item.filters)
     ]);
     return { breadcrumbs, filters: ctx.store.state.FilteredPage.item.filters };

@@ -1,4 +1,6 @@
-// Custom server from official example https://github.com/nuxt/nuxt.js/blob/dev/examples/custom-server/server.js
+const environment = process.env.NODE_ENV;
+require('dotenv').config({ path: './config/' + environment + '.env' });
+
 const { Nuxt, Builder } = require('nuxt');
 
 const cors = require('cors');
