@@ -5,7 +5,7 @@
                 ul.info-menu.row
                     li.info-menu-el.col-md-2
                         nuxt-link(to='/nashi-klienty') Наши клиенты
-                            img(src='~/assets/images/infoMenu/nashi-klienty.png') 
+                            //- img(src='~/assets/images/infoMenu/nashi-klienty.png') 
                     li.info-menu-el.col-md-2
                         nuxt-link(to='/o-kompanii') О компании
                             //- img(src='/assets/images/infoMenu/o-kompanii.png') 
@@ -25,8 +25,8 @@
         .info.container
             .row
                 .logo.col-md-2.col-sm-3.col-xs-6
-                    nuxt-link(to='/') 
-                        img(src="../assets/images/logo.png", alt="Krafteam")
+                    nuxt-link(to='/') Krafteam
+                        //- img(src="../assets/images/logo.png", alt="Krafteam")
                 .social.col-md-3.col-sm-4.col-xs-6
                     .social__mes
                         span Мессенджеры
@@ -62,256 +62,78 @@
                     span#callback.callback Заказать обратный звонок
         nav.main-nav
             .main-nav-wr.container
-              .row
-                .menu-button 
-                  .button
-                  .text Меню
-                ul.main-menu.col-xs-9
-                    li.main-menu-item.col-md-1.col-xs-2
-                        nuxt-link(to='/') Главная
-                    li.main-menu-item.col-md-1.col-xs-2
-                        nuxt-link(to='/uslugi') Услуги
-                    li.main-menu-item.col-md-3.col-xs-2
-                        nuxt-link(to='/katalog/tablichki') Каталог товаров
-                    li.main-menu-item.col-md-2.col-xs-2
-                        nuxt-link(to='/portfolio') Портфолио
-                    li.main-menu-item.col-md-3.col-xs-2
-                        nuxt-link(to='/otzyvy-klientov') Отзывы клиентов
-                    li.main-menu-item.col-md-2.col-xs-2
-                        nuxt-link(to='/kontakty') Контакты
-                .menu-find.col-xs-3
-                        .menu-find-text Найти
+              .menu-button
+                .button
+                .text Меню
+              ul.main-menu
+                  li.main-menu-item
+                      nuxt-link(to='/') Главная
+                  li.main-menu-item
+                    ul.menu-child
+                      li.menu-child-item(v-for='service in serviceList') 
+                        nuxt-link(:to='service.url') {{ service.name }}
+                    nuxt-link(to='/uslugi') Услуги
+                      img(src='~assets/images/menu-arrow.png')
+                  li.main-menu-item
+                    ul.menu-child
+                      li.menu-child-item(v-for='category in categoryList') 
+                        nuxt-link(:to='category.url') {{ category.name }}
+                    nuxt-link(to='/katalog/tablichki') Каталог товаров
+                      img(src='~assets/images/menu-arrow.png')
+                  li.main-menu-item
+                      nuxt-link(to='/portfolio') Портфолио
+                  li.main-menu-item
+                      nuxt-link(to='/otzyvy-klientov') Отзывы клиентов
+                  li.main-menu-item
+                      nuxt-link(to='/kontakty') Контакты
+              .menu-find
+                input.find(type='text' placeholder="Найти")
+                button.btn-find(type='submit')
+                  img(src='~assets/images/search.png')
 
 
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'nuxt-class-component';
 
-export default Vue.extend({
-  components: {}
-});
+import { Prop } from 'vue-property-decorator';
+
+@Component()
+export default class extends Vue {
+  public serviceList = [
+    {
+      name: 'Изготовление',
+      url: '/uslugi/izgotovlenie'
+    },
+    {
+      name: 'Дизайн',
+      url: '/uslugi/design'
+    },
+    {
+      name: 'Ремонт',
+      url: '/uslugi/remont'
+    }
+  ];
+  public categoryList = [
+    {
+      name: 'Таблички',
+      url: '/katalog/tablichki'
+    },
+    {
+      name: 'Строки',
+      url: '/katalog/stroki'
+    },
+    {
+      name: 'Стенды',
+      url: '/katalog/stand'
+    }
+  ];
+}
 </script>
 
 <style lang="scss" scoped>
-header {
-  font-size: 14px;
-  font-weight: lighter;
-}
-
-.info-nav {
-  background-color: #f1f1f1;
-  margin-bottom: 10px;
-}
-@media screen and (max-width: 768px) {
-  .info-nav {
-    display: none;
-  }
-  .info {
-    padding-top: 10px;
-  }
-  .main-menu {
-    display: none;
-  }
-  .menu-find {
-    float: right;
-  }
-}
-.info-menu {
-  font-size: 14px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  height: 30px;
-  line-height: 30px;
-}
-.info-menu-el {
-  text-decoration: none;
-  display: inline;
-  text-align: center;
-}
-a,
-.info-menu-el:hover,
-.info-menu-el:focus {
-  color: #666666;
-  text-decoration: none;
-}
-a {
-  border-bottom: 1px transparent;
-  transition: 0.4s ease all;
-}
-.info-menu-el:hover,
-.info-menu-el:focus {
-  & a {
-    border-bottom: 1px solid #666;
-  }
-}
-
-.info {
-  height: 81px;
-}
-@media screen and (max-width: 991px) {
-  .info {
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .logo {
-    img {
-      width: 100%;
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-  .logo {
-    img {
-      width: auto;
-    }
-  }
-  .logo,
-  .social,
-  .info-open,
-  .info-phone {
-    text-align: center;
-  }
-  .social {
-    margin-bottom: 20px;
-    & span {
-      display: none;
-    }
-  }
-  .info-mail {
-    & span {
-      display: block;
-    }
-  }
-}
-.social {
-  line-height: 28px;
-  img {
-    margin-right: 10px;
-  }
-  .social__mes {
-    span {
-      margin-right: 20px;
-    }
-  }
-  .social__soc {
-    span {
-      margin-right: 10px;
-    }
-  }
-}
-
-.info-open {
-  .info-weekend {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 991px) {
-  .info-open {
-    font-size: 12px;
-  }
-}
-
-.info-phone {
-  .info-phone-dop {
-    color: #a9a9a9;
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 1200px) {
-  .info-phone {
-    font-size: 12px;
-  }
-}
-
-.info-mail {
-  .callback {
-    color: #00bfed;
-    border-bottom: 1px transparent;
-    transition: all 0.4s ease-in-out;
-    &:hover {
-      cursor: pointer;
-      color: darken($color: #00bfed, $amount: 1%);
-      border-bottom: 1px solid #00bfed;
-    }
-  }
-}
-@media screen and (max-width: 991px) {
-  .info-mail {
-    text-align: center;
-    p {
-      display: inline-block;
-      margin-right: 10px;
-    }
-  }
-}
-
-.main-nav {
-  background-color: #00bfed;
-  color: #a9a9a9;
-  .main-menu {
-    list-style: none;
-    margin-left: 0;
-    .main-menu-item {
-      a {
-        color: #ffffff;
-      }
-
-      display: inline-block;
-    }
-  }
-}
-.menu-find-text {
-  background-color: #fff;
-  border-radius: 50%;
-  margin-top: 14px;
-  margin-bottom: 14px;
-}
-.menu-button {
-  display: none;
-  color: #fff;
-  float: left;
-  margin-top: 14px;
-  margin-bottom: 14px;
-}
-.text {
-  display: inline-block;
-  vertical-align: middle;
-}
-.button {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  width: 20px;
-  height: 3px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  margin-right: 10px;
-  &:after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    width: 20px;
-    height: 3px;
-    border-radius: 50%;
-    background-color: #ffffff;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    width: 20px;
-    height: 3px;
-    border-radius: 50%;
-    background-color: #ffffff;
-  }
-}
-@media screen and (max-width: 768px) {
-  .menu-button {
-    display: block;
-  }
-}
+@import '~assets/css/base/_variables.scss';
+@import '~assets/css/components/Header.scss';
 </style>

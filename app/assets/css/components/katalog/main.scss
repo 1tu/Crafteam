@@ -56,6 +56,19 @@
       }
     }
   }
+  &__footer {
+    iframe {
+      width: 560px;
+      float: right;
+      display: inline-block;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    ul {
+      display: inline-block;
+    }
+  }
 }
 .title {
   color: #666666;

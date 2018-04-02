@@ -27,6 +27,27 @@
               nuxt-link(to='/') туалет,
               nuxt-link(to='/') служебное помещение,
         ProductList
+        .body__footer
+          .content.clearfix
+            h2 Заголовок текста
+            p Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
+            ul
+              li Сайт рыбатекст поможет
+              li Сайт рыбатекст поможет
+              li Сайт рыбатекст поможет
+              li Сайт рыбатекст поможет
+            iframe(height="315" src="https://www.youtube.com/embed/jOHmLeAXETU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
+    .callback
+      h2 Оставьте заявку, и мы рассчитаем стоимость работ
+      form.form__call
+          input(type="hidden" name="nameButton" value="Блок Footer")
+          input(type="text" name="name" placeholder="Ваше имя" required)
+          input(type="text" name="phone" placeholder="Ваш номер телефона" required)
+          button.btn Оставить заявку
+          label#process.process
+              input.required(type="checkbox" name="process" for="process")
+              .checked
+              .checked-text Даю согласие на обработку персональных данных
 </template>
 
 <script lang='ts'>
@@ -74,4 +95,5 @@ export default class extends Vue {
 <style lang="scss" scoped>
 @import '~assets/css/base/_variables.scss';
 @import '~assets/css/components/katalog/main.scss';
+@import '~assets/css/components/index/callback.scss';
 </style>

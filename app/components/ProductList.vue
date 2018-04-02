@@ -25,8 +25,30 @@
             span='(' + '2' + ')'            
 
     
-    p(v-if='$store.state.Product.isListLoading') Загрузка...
+    p(v-if='$store.state.Product.isListLoading') Загрузка... 
     ProductCard(v-for='item in $store.state.Product.list' :data='item' :key='item.id')
+    .pagination
+      button.btn__more Еще товары
+      .pagination__prev
+        nuxt-link(to='/')
+      .pagination__list
+        
+        ul
+          li 
+            nuxt-link(to='/') 1
+          li 
+            nuxt-link(to='/') 2
+          li 
+            nuxt-link(to='/') 3
+          li 
+            nuxt-link(to='/') 4
+          li 
+            nuxt-link(to='/') 5
+          li ...
+          li 
+            nuxt-link(to='/') 48
+      .pagination__next
+        nuxt-link(to='/')
 </template>
 
 <script lang="ts">

@@ -1,0 +1,257 @@
+header {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.info-nav {
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .info-nav {
+    display: none;
+  }
+  .info {
+    padding-top: 10px;
+  }
+  .main-menu {
+    display: none;
+  }
+  .menu-find {
+    float: right;
+  }
+}
+.info-menu {
+  font-size: 14px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+}
+.info-menu-el {
+  text-decoration: none;
+  display: inline;
+  text-align: center;
+}
+a,
+.info-menu-el:hover,
+.info-menu-el:focus {
+  color: #666666;
+  text-decoration: none;
+}
+a {
+  border-bottom: 1px transparent;
+  transition: 0.4s ease all;
+}
+.info-menu-el:hover,
+.info-menu-el:focus {
+  & a {
+    border-bottom: 1px solid #666;
+  }
+}
+
+.info {
+  height: 81px;
+}
+@media screen and (max-width: 991px) {
+  .info {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .logo {
+    img {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .logo {
+    img {
+      width: auto;
+    }
+  }
+  .logo,
+  .social,
+  .info-open,
+  .info-phone {
+    text-align: center;
+  }
+  .social {
+    margin-bottom: 20px;
+    & span {
+      display: none;
+    }
+  }
+  .info-mail {
+    & span {
+      display: block;
+    }
+  }
+}
+.social {
+  line-height: 28px;
+  img {
+    margin-right: 10px;
+  }
+  .social__mes {
+    span {
+      margin-right: 20px;
+    }
+  }
+  .social__soc {
+    span {
+      margin-right: 10px;
+    }
+  }
+}
+
+.info-open {
+  .info-weekend {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .info-open {
+    font-size: 12px;
+  }
+}
+
+.info-phone {
+  .info-phone-dop {
+    color: #a9a9a9;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .info-phone {
+    font-size: 12px;
+  }
+}
+
+.info-mail {
+  .callback {
+    color: #00bfed;
+    border-bottom: 1px transparent;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      color: darken($color: #00bfed, $amount: 1%);
+      border-bottom: 1px solid #00bfed;
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .info-mail {
+    text-align: center;
+    p {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+.main-nav {
+  background-color: #00bfed;
+  color: #a9a9a9;
+  .main-menu {
+    list-style: none;
+    margin-left: 0;
+    padding: 15px 0;
+    float: left;
+    .main-menu-item {
+      padding: 0 20px;
+      position: relative;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+      a {
+        color: #ffffff;
+      }
+
+      display: inline-block;
+      img {
+        margin-left: 5px;
+      }
+      .menu-child {
+        position: absolute;
+        background-color: $color-brand;
+        padding: 0 15px 10px 15px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        top: 35px;
+        left: 0;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}
+.menu-find {
+  display: block;
+  float: right;
+  margin-top: 15px;
+  position: relative;
+  .find {
+    background-color: #fff;
+    border-radius: 30px;
+    border: none;
+    padding: 0 18px;
+  }
+  button.btn-find {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: -2px;
+    outline: none;
+  }
+}
+.menu-button {
+  display: none;
+  color: #fff;
+  float: left;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.text {
+  display: inline-block;
+  vertical-align: middle;
+}
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 20px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-right: 10px;
+  &:after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    width: 20px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+}
+@media screen and (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+}

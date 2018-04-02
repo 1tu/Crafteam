@@ -26,6 +26,7 @@ body {
     color: #666;
     font-weight: 700;
     margin-bottom: 35px;
+    font-size: $font-size-l;
   }
   .content table {
     width: 100%;
@@ -97,6 +98,6 @@ body {
 // стили для контента из WYSIWYG редактора
 .editor {
   h1 {
-    font-size: 20px;
+    font-size: $font-size-xl;
   }
 }
