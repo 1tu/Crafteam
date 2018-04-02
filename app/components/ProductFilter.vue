@@ -1,14 +1,16 @@
 <template lang='pug'>
-  aside.container
+  .container
     .block(v-for='item in list')
-      .block__header {{ item.name }}
+      .block__header 
+        h3 {{ item.name }}
       ul.block__body
         li.block__item(v-for='option in item.options')
           label
             input.option__checkbox(v-if='item.type === "category"' type='checkbox' v-model='option.isSelected')
             input.option__checkbox(v-else type='radio' :value='option.value' 
               v-model='props[item.key]' @click='onRadio(item.key, option.value)')
-            span.option__name {{ option.name }}
+            .checkbox
+            .option__name {{ option.name }}
       
     button.submit(@click='search') Найти
 </template>
@@ -106,49 +108,5 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 @import '~assets/css/base/_variables.scss';
-.container {
-  display: block;
-}
-
-.block {
-  margin-top: 20px;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &__header {
-    color: $color-black;
-    padding-left: 25px;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  &__body {
-    padding: 25px;
-    display: block;
-    border-radius: 5px;
-    background-color: $color-grey-light;
-  }
-}
-.option {
-  &__checkbox {
-    margin-right: 10px;
-  }
-  &__name {
-    font-family: Lato;
-    color: $color-black;
-    font-size: 14px;
-  }
-}
-
-.submit {
-  display: block;
-  width: 100%;
-  margin-top: 20px;
-  background-color: $color-blue;
-  border: none;
-  height: 40px;
-  border-radius: 50px;
-  color: $color-white;
-}
+@import '~assets/css/components/productFilter.scss';
 </style>

@@ -2,11 +2,30 @@
   .container.clearfix
     PageHeader(:breadcrumbs='breadcrumbs')
     main.main
-      ProductFilter.filter(:filters='filters')
+      aside.filter
+        .person_order.container
+          p Не нашли подходящий вариант?
+          button.btn Индивидуальный заказ
+        ProductFilter(:filters='filters')
+        .share.container
+          h3 Акция!
+          img(src='~assets/images/katalog/katalog-share.jpg')
+          p При сумме заказа от 4500 руб. доставка бесплатно
+
       .body 
-        h1.title {{ $store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.h1, $store.state.Category.item.seoList[0].seoMeta) }}
-        .editor(v-html='$store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.content, $store.state.Category.item.seoList[0].seoMeta)')
-        p {{ $store.state.Category.listBase }}
+        .body__header
+          h1.title {{ $store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.h1, $store.state.Category.item.seoList[0].seoMeta) }}
+          .editor(v-html='$store.getters.tText($store.state.Category.item.seoList[0].seoTemplate.content, $store.state.Category.item.seoList[0].seoMeta)')
+          .body__header_filter
+            p Таблички для: 
+              nuxt-link(to='/') для офиса,
+              nuxt-link(to='/') школа,
+              nuxt-link(to='/') госучереждения,
+              nuxt-link(to='/') больница,
+            p По назначению: 
+              nuxt-link(to='/') номер кабинета,
+              nuxt-link(to='/') туалет,
+              nuxt-link(to='/') служебное помещение,
         ProductList
 </template>
 
@@ -53,26 +72,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 100%;
-  max-width: 1200px;
-}
-.main {
-  padding: 60px 0;
-}
-.filter {
-  float: left;
-  width: 250px;
-}
-.body {
-  padding-left: 280px;
-}
-.title {
-  color: #666666;
-  font-size: 24px;
-}
-.description {
-  color: #a9a9a9;
-  font-size: 14px;
-}
+@import '~assets/css/base/_variables.scss';
+@import '~assets/css/components/katalog/main.scss';
 </style>

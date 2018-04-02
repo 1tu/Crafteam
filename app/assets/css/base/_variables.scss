@@ -9,6 +9,7 @@ $color-secondary-dark: darken($color-secondary, 10%);
 $color-secondary-darker: darken($color-secondary, 20%);
 $color-secondary-bright: lighten($color-secondary, 10%);
 $color-secondary-brighter: lighten($color-secondary, 20%);
+$color-third: #eb5f59;
 $color-background-dark: #333333;
 $color-background-darker: #000000;
 $color-background-bright: #2f4256;
@@ -17,8 +18,10 @@ $color-foreground-dark: #333333;
 $color-foreground-darker: #000000;
 $color-foreground-bright: #969da6;
 $color-foreground-brighter: #ffffff;
-$color-brand-text: #666666;
-$color-secondary-text: #a9a9a9;
+$color-brand-text: #a9a9a9;
+$color-secondary-text: #666666;
+$color-background: #f8f8f8;
+$color-background-second: #f1f1f1;
 
 // Animations
 $animation-speed-default: 0.35s;

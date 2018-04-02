@@ -11,6 +11,19 @@
         select.settings__select(v-model='displayCount')
           option(value='10') 10
           option(value='25') 25
+      
+      .settings__item
+        .settings__view
+          .settings__name Вид каталога
+            img(src='~assets/images/katalog/cell-icon.png')
+            img(src='~assets/images/katalog/stroke-icon.png')
+      
+      .settings__item
+        .settings__compare
+          img(src='~assets/images/katalog/compare-c.png')
+          .settings__name Сравнение
+            span='(' + '2' + ')'            
+
     
     p(v-if='$store.state.Product.isListLoading') Загрузка...
     ProductCard(v-for='item in $store.state.Product.list' :data='item' :key='item.id')
@@ -32,28 +45,5 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 @import '~assets/css/base/_variables.scss';
-.container {
-  display: block;
-}
-.settings {
-  border-radius: 10px;
-  background-color: $color-grey-light;
-  padding: 8px;
-
-  &__item {
-    display: inline-block;
-    margin-right: 16px;
-  }
-
-  &__name {
-    display: inline;
-    color: $color-black;
-    font-size: 14px;
-    margin-right: 8px;
-  }
-
-  &__select {
-    width: 100px;
-  }
-}
+@import '~assets/css/components/productList.scss';
 </style>

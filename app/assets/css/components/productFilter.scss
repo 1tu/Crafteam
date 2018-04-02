@@ -1,0 +1,88 @@
+.container {
+  display: block;
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+.block {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &:nth-of-type(odd) {
+    & .block__body {
+      background-color: $color-background;
+    }
+  }
+
+  &__header {
+    color: $color-brand-text;
+    padding-left: 25px;
+    margin-bottom: 5px;
+    h3 {
+      font-size: 16px;
+    }
+  }
+  &__body {
+    padding: 25px;
+    display: block;
+    border-radius: 5px;
+  }
+}
+.option {
+  &__checkbox {
+    display: none;
+  }
+  &__name {
+    color: $color-brand-text;
+    font-size: 14px;
+    width: 175px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+.checkbox {
+  width: 13px;
+  height: 13px;
+  margin-top: 5px;
+  margin-right: 10px;
+  border: 1px solid $color-brand-text;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.option__checkbox:checked + .checkbox {
+  border-color: $color-secondary;
+}
+.option__checkbox:checked + .checkbox:after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  background-color: $color-secondary;
+  right: 7px;
+  top: 5px;
+  transform: rotate(-45deg);
+}
+.option__checkbox:checked + .checkbox:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 8px;
+  background-color: $color-secondary;
+  right: 3px;
+  top: 2px;
+  transform: rotate(32deg);
+}
+
+.submit {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  background-color: $color-blue;
+  border: none;
+  height: 40px;
+  border-radius: 50px;
+  color: $color-white;
+}

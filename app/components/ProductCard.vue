@@ -2,12 +2,23 @@
   .card(v-if='data')
     .card__header
       .card__article Артикул: {{ data.id }}
+      .card__compare 
+        img(src='~assets/images/katalog/compare.png')
+      .card__favourites В избранное
+        img(src='~assets/images/katalog/favourites.png')
     .card__slider
+      .card__slider_leader
+        span Лидер продаж
+      .card__slider_sale
+        span Скидка 10%
+      .card__slider_share
+        span Акция!
       .card__slider-frame
         .card__slider-list
           .card__slider-item(v-for='image in data.imageList' :style="{'background-image': 'url('+ image.filepath +')'}")
     .card__body
       .card__name
+        p Название таблички до 200 знаков длинной
       .card__config
         template(v-if='data.config')
           .card__config-item(v-for='item in data.config')
@@ -17,8 +28,19 @@
           .card__config-item(v-for='item in data.propertyList')
             .card__config-name {{ item.name }}
             .card__config-value {{ item.value }}
-      a.card__link Подробнее...
-
+      .card__cost
+        p Цена:
+          span 1000 руб./шт.
+      .card__delivery
+        p Доставка: 
+         span 1 января
+      .card__link 
+        a Подробнее...
+      .card__buttons
+        .btn__buy Купить в 1 клик
+        .btn__cart
+          span +
+          img(src='~assets/images/katalog/cart.png')
 </template>
 
 <script lang="ts">
@@ -52,7 +74,5 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 @import '~assets/css/base/_variables.scss';
-.card {
-  display: block;
-}
+@import '~assets/css/components/productCard.scss';
 </style>

@@ -1,0 +1,44 @@
+.container {
+  display: block;
+  padding-right: 0;
+}
+.settings {
+  border-radius: 10px;
+  background-color: $color-background;
+  padding: 15px;
+  margin-bottom: 25px;
+
+  &__item {
+    display: inline-block;
+    margin-right: 16px;
+    &:last-child {
+      float: right;
+    }
+  }
+
+  &__name {
+    display: inline;
+    color: $color-brand-text;
+    margin-right: 8px;
+  }
+
+  &__select {
+    border-radius: 10px;
+    padding: 0 25px;
+  }
+
+  &__view {
+    img {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+  &__compare {
+    img {
+      margin-right: 5px;
+    }
+    .settings__name {
+      color: $color-brand;
+    }
+  }
+}
