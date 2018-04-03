@@ -30,8 +30,8 @@ const mutations = mutation(pureState, {
 });
 
 const actions = action(pureState, {
-  async getItemById({ commit, rootState }, id: number) {
-    const res = await axios.get(rootState.baseApiUrl + 'product/byId', { params: { id } });
+  async getItemByNameTranslit({ commit, rootState }, nameTranslit: string) {
+    const res = await axios.get(rootState.baseApiUrl + 'product/byNameTranslit', { params: { nameTranslit } });
     commit(types.mutation.item, res.data);
   },
   async getListByFilter({ commit, dispatch, rootState }, { categoryIdList, propertyKeyValueList }) {

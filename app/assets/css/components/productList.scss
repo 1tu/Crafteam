@@ -1,25 +1,60 @@
-.container {
-  display: block;
-  padding-right: 0;
+.list {
+  font-size: 0;
+
+  &__item {
+    font-size: $font-size-m;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: $space-lg;
+    vertical-align: top;
+
+    @media (min-width: 850px) and (max-width: 1099px) {
+      width: 49%;
+      margin-right: 2%;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      width: 32%;
+      margin-right: 2%;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
 }
+
 .settings {
   border-radius: 10px;
-  background-color: $color-background;
+  background-color: $color-grey-light;
   padding: 15px;
   margin-bottom: 25px;
 
   &__item {
     display: inline-block;
-    margin-right: 16px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
     &:last-child {
-      float: right;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 1050px) {
+      width: 33%;
+      margin-bottom: 0;
+    }
+
+    img {
+      vertical-align: middle;
     }
   }
 
   &__name {
     display: inline;
-    color: $color-brand-text;
-    margin-right: 8px;
+    vertical-align: middle;
+    margin-right: 10px;
   }
 
   &__select {
@@ -27,18 +62,9 @@
     padding: 0 25px;
   }
 
-  &__view {
-    img {
-      margin-left: 5px;
-      cursor: pointer;
-    }
-  }
   &__compare {
     img {
       margin-right: 5px;
-    }
-    .settings__name {
-      color: $color-brand;
     }
   }
 }
@@ -47,7 +73,7 @@
   .btn__more {
     width: 169px;
     height: 30px;
-    background-color: $color-background;
+    background-color: $color-grey-light;
     border-radius: 30px;
     text-align: center;
     border: none;
@@ -55,14 +81,14 @@
   &__list {
     float: right;
     a {
-      color: $color-brand-text;
+      color: $color-text;
       &:hover,
       :focus {
         text-decoration: none;
-        color: $color-brand;
+        color: $color-primary;
       }
       &.active {
-        color: $color-brand;
+        color: $color-primary;
       }
     }
     ul {
@@ -71,7 +97,44 @@
       li {
         display: inline-block;
         padding: 2px 8px;
-        background-color: $color-background;
+        background-color: $color-grey-light;
+        border-radius: 30px;
+      }
+    }
+  }
+}
+
+.pagination {
+  text-align: center;
+
+  .btn__more {
+    width: 169px;
+    height: 30px;
+    background-color: $color-grey-light;
+    border-radius: 30px;
+    text-align: center;
+    border: none;
+  }
+  &__list {
+    float: right;
+    a {
+      color: $color-text;
+      &:hover,
+      :focus {
+        text-decoration: none;
+        color: $color-primary;
+      }
+      &.active {
+        color: $color-primary;
+      }
+    }
+    ul {
+      position: relative;
+
+      li {
+        display: inline-block;
+        padding: 2px 8px;
+        background-color: $color-grey-light;
         border-radius: 30px;
       }
     }

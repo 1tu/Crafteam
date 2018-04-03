@@ -40,7 +40,10 @@ module.exports = [
     child: {
       listOpts: () => ({ url: '/product/listByFilter' }),
       item: {
-        opts: productFromList => ({ url: '/product/byId', params: { id: (productFromList.config ? 'm' : '') + productFromList.id } }),
+        opts: productFromList => ({
+          url: '/product/byNameTranslit',
+          params: { nameTranslit: (productFromList.config ? '+' : '') + productFromList.nameTranslit }
+        }),
         path: (parentPath, product) => parentPath + '/' + (product.config ? '+' : '') + product.nameTranslit,
         name: product => tText('{{ keys.0 }}', null, product.seoMeta)
       }

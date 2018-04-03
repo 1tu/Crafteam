@@ -1,27 +1,55 @@
+$space: 2px;
+
+$space-xs: $space;
+$space-sm: $space * 2;
+$space-md: $space * 4;
+$space-lg: $space * 8;
+$space-xl: $space * 16;
+
+$space-size: (
+  1: $space-xs,
+  2: $space-sm,
+  3: $space-md,
+  4: $space-lg,
+  5: $space-xl
+);
+
+$space-direction: (
+  t: 'top',
+  b: 'bottom',
+  l: 'left',
+  r: 'right'
+);
+
 // Colors
-$color-brand: #00bfed;
-$color-brand-dark: darken($color-brand, 10%);
-$color-brand-darker: darken($color-brand, 20%);
-$color-brand-bright: lighten($color-brand, 10%);
-$color-brand-brighter: lighten($color-brand, 20%);
+$color-text: #555;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-grey: #dddddd;
+$color-grey-light: lighten($color-grey, 10%);
+$color-grey-dark: darken($color-grey, 10%);
+
+$color-blue: #00bfed;
+$color-blue-light: lighten($color-blue, 10%);
+$color-blue-dark: darken($color-blue, 10%);
+
+$color-primary: #00bfed;
+$color-primary-dark: darken($color-primary, 10%);
+$color-primary-darker: darken($color-primary, 20%);
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-lighter: lighten($color-primary, 20%);
+
 $color-secondary: #a1cd03;
 $color-secondary-dark: darken($color-secondary, 10%);
 $color-secondary-darker: darken($color-secondary, 20%);
-$color-secondary-bright: lighten($color-secondary, 10%);
-$color-secondary-brighter: lighten($color-secondary, 20%);
-$color-third: #eb5f59;
-$color-background-dark: #333333;
-$color-background-darker: #000000;
-$color-background-bright: #2f4256;
-$color-background-brighter: #f8f8f8;
-$color-foreground-dark: #333333;
-$color-foreground-darker: #000000;
-$color-foreground-bright: #969da6;
-$color-foreground-brighter: #ffffff;
-$color-brand-text: #a9a9a9;
-$color-secondary-text: #666666;
-$color-background: #f8f8f8;
-$color-background-second: #f1f1f1;
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-lighter: lighten($color-secondary, 20%);
+
+$color-important: #eb5f59;
+$color-important-dark: darken(#eb5f59, 10%);
+$color-important-light: lighten(#eb5f59, 10%);
 
 // Animations
 $animation-speed-default: 0.35s;
@@ -35,8 +63,8 @@ $font-weight-normal: 400;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-black: 800;
-$font-size-xs: 0.5rem; // 8px
-$font-size-s: 0.85rem; // 13.6px
+$font-size-xs: 0.625rem; // 10px
+$font-size-s: 0.8rem; // 12.8px
 $font-size-m: 1rem; // [16px]
 $font-size-l: 1.25rem; // 20px
 $font-size-xl: 1.5rem; // 24px
@@ -54,14 +82,3 @@ $media-screen-xxxl: 120em; // 1920px
 // Variables for mixins
 $medias: xxs, xs, s, m, l, xl, xxl, xxxl;
 $mediavalues: $media-screen-xxs, $media-screen-xs, $media-screen-s, $media-screen-m, $media-screen-l, $media-screen-xl, $media-screen-xxl, $media-screen-xxxl;
-
-$color-white: #ffffff;
-$color-black: #333;
-
-$color-grey-light: #f5f5f5;
-$color-grey: #dddddd;
-$color-grey-dark: #a9a9a9;
-
-$color-blue-light: #0592b6;
-$color-blue: #00bfed;
-$color-blue-dark: #47daff;

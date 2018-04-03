@@ -6,6 +6,7 @@ const router = Router();
 
 const token = 'b875aba36dc5d56bb32354cd864b1ddcdf52b3fa3eb135cb4a87ca4207d740770f73302e58155f97c441d95a070442a323ab398639ea276358f83602e55d8229';
 // const token = 'testapi';
+const serverApiUrl = config.env.serverBaseUrl + '/api';
 
 const routeList = [
   '/shop/byHost',
@@ -16,14 +17,14 @@ const routeList = [
   '/property/listCategoryIds',
   '/filteredPage/byUrl',
   '/filteredPage/listByCategoryId',
-  '/product/byId',
+  '/product/byNameTranslit',
   '/product/listByIds',
   '/product/listByFilter'
 ];
 const cache = LRU({ max: 3000, maxAge: parseInt(process.env.CACHE_DURATION) });
 
 const defaultParams = { token };
-axios.get(config.env.serverBaseUrl + '/shop/byHost', { params: { ...defaultParams, host: config.env.shopHost } }).then(res => {
+axios.get(serverApiUrl + '/shop/byHost', { params: { ...defaultParams, host: config.env.shopHost } }).then(res => {
   defaultParams.shopId = res.data.id;
 });
 
@@ -33,8 +34,7 @@ routeList.forEach(route => {
     if (cached) res.json(cached);
     else {
       const params = { ...req.query, ...defaultParams };
-      console.log('REQ:', route, params);
-      const result = await axios.get(config.env.serverBaseUrl + route, { params });
+      const result = await axios.get(serverApiUrl + route, { params });
       cache.set(req.url, result.data);
       res.json(result.data);
     }

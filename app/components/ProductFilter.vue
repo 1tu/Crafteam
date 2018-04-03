@@ -1,17 +1,17 @@
 <template lang='pug'>
   .container
     .block(v-for='item in list')
-      .block__header 
-        h3 {{ item.name }}
+      h3.block__header {{ item.name }}
+
       ul.block__body
         li.block__item(v-for='option in item.options')
-          label
-            input.option__checkbox(v-if='item.type === "category"' type='checkbox' v-model='option.isSelected')
-            input.option__checkbox(v-else type='radio' :value='option.value' 
+          label.checkbox
+            input.checkbox__input(v-if='item.type === "category"' type='checkbox' v-model='option.isSelected')
+            input.checkbox__input(v-else type='radio' :value='option.value'
               v-model='props[item.key]' @click='onRadio(item.key, option.value)')
-            .checkbox
-            .option__name {{ option.name }}
-      
+            .checkbox__box
+            .checkbox__title {{ option.name }}
+
     button.submit(@click='search') Найти
 </template>
 
@@ -53,8 +53,6 @@ export default class extends Vue {
   }
 
   public created() {
-    console.log('F', this.filters);
-
     this.list = [
       {
         name: 'По назначению',

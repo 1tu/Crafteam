@@ -1,51 +1,52 @@
 <template lang='pug'>
-  .container
+  div
     .settings
       .settings__item
-        .settings__name Сортировка
+        span.settings__name Сортировка
         select.settings__select(v-model='sortBy')
           option(value='price') По цене
-      
+
       .settings__item
-        .settings__name Показывать по
+        span.settings__name Показывать по
         select.settings__select(v-model='displayCount')
           option(value='10') 10
           option(value='25') 25
-      
-      .settings__item
-        .settings__view
-          .settings__name Вид каталога
-            img(src='~assets/images/katalog/cell-icon.png')
-            img(src='~assets/images/katalog/stroke-icon.png')
-      
-      .settings__item
-        .settings__compare
-          img(src='~assets/images/katalog/compare-c.png')
-          .settings__name Сравнение
-            span='(' + '2' + ')'            
 
-    
-    p(v-if='$store.state.Product.isListLoading') Загрузка... 
-    ProductCard(v-for='item in $store.state.Product.list' :data='item' :key='item.id')
+      .settings__item
+        span.settings__name Вид каталога
+        img(src='~assets/images/katalog/cell-icon.png')
+        img.ml-3(src='~assets/images/katalog/stroke-icon.png')
+
+      //- .settings__item
+      //-   .settings__compare
+      //-     img(src='~assets/images/katalog/compare-c.png')
+      //-     .settings__name Сравнение
+      //-       span='(' + '2' + ')'
+
+
+    p(v-if='$store.state.Product.isListLoading') Загрузка...
+
+    .list
+      .list__item(v-for='item in $store.state.Product.list' :key='item.id')
+        ProductCard(:data='item')
     .pagination
       button.btn__more Еще товары
       .pagination__prev
         nuxt-link(to='/')
       .pagination__list
-        
         ul
-          li 
+          li
             nuxt-link(to='/') 1
-          li 
+          li
             nuxt-link(to='/') 2
-          li 
+          li
             nuxt-link(to='/') 3
-          li 
+          li
             nuxt-link(to='/') 4
-          li 
+          li
             nuxt-link(to='/') 5
           li ...
-          li 
+          li
             nuxt-link(to='/') 48
       .pagination__next
         nuxt-link(to='/')
@@ -66,6 +67,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/base/_variables.scss';
+@import '~assets/css/base/_util.scss';
 @import '~assets/css/components/productList.scss';
 </style>

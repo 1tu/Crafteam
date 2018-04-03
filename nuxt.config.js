@@ -47,19 +47,19 @@ module.exports = {
   head: {
     title: 'My app',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' }]
   },
   loading: { color: '#1FC2C8' },
   srcDir: './app',
   buildDir: './dist/.nuxt',
-  css: ['~/assets/css/main.sass'],
+  css: ['~/assets/css/main.scss'],
   build: {
     extractCSS: true,
     vendor: ['babel-polyfill', 'vuex-class', 'nuxt-class-component' /*, 'vue-i18n' */],
     rules: [rules.scriptsLint, rules.scripts, rules.html],
     plugins: []
   },
-  // plugins: ['~/plugins/axios.js'],
+  plugins: ['~plugins/filters.ts'],
   modules: [
     '~/modules/typescript',
     '@nuxtjs/axios',

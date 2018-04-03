@@ -10,6 +10,7 @@ import { SeoMetaEntity } from '../shared/types/seoMeta.entity';
 import { tText } from '../shared/helpers/tText.helper';
 
 const state = (): rootState => ({
+  serverUrl: null,
   baseApiUrl: null,
   shop: null,
   city: null
@@ -18,13 +19,16 @@ const pureState = state();
 
 const getters = getter(pureState, {
   head(state) {
-    return (meta: SeoMetaEntity) => ({
-      title: tText(meta.title, state.city, meta),
-      meta: [
-        { hid: 'description', name: 'description', content: tText(meta.description, state.city, meta) },
-        { hid: 'keywords', name: 'keywords', content: tText(meta.keywords, state.city, meta) }
-      ]
-    });
+    return (meta: SeoMetaEntity) => {
+      if (!meta) return {};
+      return {
+        title: tText(meta.title, state.city, meta),
+        meta: [
+          { hid: 'description', name: 'description', content: tText(meta.description, state.city, meta) },
+          { hid: 'keywords', name: 'keywords', content: tText(meta.keywords, state.city, meta) }
+        ]
+      };
+    };
   },
   tText(state) {
     return (text: string, meta: SeoMetaEntity) => tText(text, state.city, meta);
@@ -34,6 +38,9 @@ const getters = getter(pureState, {
 const mutations = mutation(pureState, {
   baseApiUrl(state, baseApiUrl: string) {
     state.baseApiUrl = baseApiUrl;
+  },
+  serverUrl(state, serverUrl: string) {
+    state.serverUrl = serverUrl;
   },
   shop(state, shop: ShopEntity) {
     state.shop = shop;
@@ -46,6 +53,7 @@ const mutations = mutation(pureState, {
 const actions = action(pureState, {
   async nuxtServerInit({ commit, dispatch }, ctx: Context) {
     commit(types.mutation.baseApiUrl, ctx.env.baseApiUrl);
+    commit(types.mutation.serverUrl, ctx.env.serverBaseUrl);
     const city = (ctx.req ? (ctx.req.headers as any).host : window.location.host.split(':')[0]).split('.')[0];
     const res = await Promise.all([
       axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: ctx.env.shopHost } }),

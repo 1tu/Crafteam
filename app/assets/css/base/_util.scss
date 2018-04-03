@@ -46,3 +46,46 @@ $responsive-offsets: true;
     }
   }
 }
+
+$space-type: (
+  m: 'margin',
+  p: 'padding'
+);
+
+@each $type, $tValue in $space-type {
+  .#{$type} {
+    @each $direction, $dValue in $space-direction {
+      &#{$direction} {
+        @each $size, $sValue in $space-size {
+          &-#{$size} {
+            #{$tValue}-#{$dValue}: $sValue;
+          }
+        }
+      }
+    }
+
+    @each $size, $sValue in $space-size {
+      &-#{$size} {
+        #{$tValue}: $sValue;
+      }
+    }
+
+    &x {
+      @each $size, $sValue in $space-size {
+        &-#{$size} {
+          #{$tValue}-left: $sValue;
+          #{$tValue}-right: $sValue;
+        }
+      }
+    }
+
+    &y {
+      @each $size, $sValue in $space-size {
+        &-#{$size} {
+          #{$tValue}-top: $sValue;
+          #{$tValue}-bottom: $sValue;
+        }
+      }
+    }
+  }
+}

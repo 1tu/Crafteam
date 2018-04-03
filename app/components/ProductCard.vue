@@ -1,46 +1,29 @@
 <template lang='pug'>
   .card(v-if='data')
     .card__header
-      .card__article Артикул: {{ data.id }}
-      .card__compare 
-        img(src='~assets/images/katalog/compare.png')
-      .card__favourites В избранное
-        img(src='~assets/images/katalog/favourites.png')
+      span Артикул: {{ (data.config? 'п-' : 'т-') + data.id }}
+    .card__tag.-excelent Лидер продаж
     .card__slider
-      .card__slider_leader
-        span Лидер продаж
-      .card__slider_sale
-        span Скидка 10%
-      .card__slider_share
-        span Акция!
-      .card__slider-frame
-        .card__slider-list
-          .card__slider-item(v-for='image in data.imageList' :style="{'background-image': 'url('+ image.filepath +')'}")
-    .card__body
-      .card__name
-        p Название таблички до 200 знаков длинной
-      .card__config
-        template(v-if='data.config')
-          .card__config-item(v-for='item in data.config')
-            .card__config-name {{ getPropName(item.key) }}
-            .card__config-value {{ getPropValue(item.key, item.value) }}
-        template(v-else)
-          .card__config-item(v-for='item in data.propertyList')
-            .card__config-name {{ item.name }}
-            .card__config-value {{ item.value }}
-      .card__cost
-        p Цена:
-          span 1000 руб./шт.
-      .card__delivery
-        p Доставка: 
-         span 1 января
-      .card__link 
-        a Подробнее...
-      .card__buttons
-        .btn__buy Купить в 1 клик
-        .btn__cart
-          span +
-          img(src='~assets/images/katalog/cart.png')
+      .card__slider-item(v-if='data.config'
+        :style="{'background-image': 'url('+ $store.state.serverUrl + getConfigValueByKey('form') +')'}")
+
+    nuxt-link.card__name(:to='"/tovar/" + (data.config? "+" : "") + data.nameTranslit') {{ data.name }}
+    ul.card__config
+      template(v-if='data.config')
+        li.card__config-item(v-for='item in data.config')
+          .card__config-name {{ getPropName(item.key) }}
+          .card__config-value(:title='getPropValue(item.key, item.value)') {{ getPropValue(item.key, item.value) }}
+      template(v-else)
+        li.card__config-item(v-for='item in data.propertyList')
+          .card__config-name {{ item.name }}
+          .card__config-value {{ item.value }}
+
+    .card__block.-darker Цена:
+      span.card__price {{ 'X' }} руб./шт.
+
+    .card__block
+      .card__button
+        span.card__button-text В корзину
 </template>
 
 <script lang="ts">
@@ -56,8 +39,9 @@ export default class extends Vue {
   @Prop({ required: true, default: () => ({}) })
   public data: ProductEntity & PreManufactureEntity;
 
-  isPremanufacture(item) {
-    return item.config;
+  public getConfigValueByKey(key: string) {
+    if (!this.data.config) return '';
+    return this.data.config.find(c => c.key === key).value;
   }
 
   public getPropName(key: string) {
@@ -67,8 +51,6 @@ export default class extends Vue {
     const res = this.data.manufacture.schema.find(i => i.key === key);
     return res ? (res.optionList.find(o => o.value === value) || ({} as any)).name : '';
   }
-
-  public created() {}
 }
 </script>
 
