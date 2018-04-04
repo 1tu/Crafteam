@@ -1,81 +1,50 @@
-h1 {
-  margin: 0;
-  font-size: 24px;
-  margin-bottom: 35px;
-}
 .product {
   font-weight: 300;
-}
-.product-calc {
-  margin-bottom: 100px;
-}
-.product-form,
-.product-prop {
-  display: inline-block;
-  vertical-align: top;
-}
-.product-form {
-  width: 49%;
-  margin-right: 35px;
-  & .product-slider {
-    img {
-      width: 100%;
+
+  &__title {
+    margin: 0 0 $space-lg;
+  }
+
+  &__form,
+  &__info {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__info {
+    width: 49%;
+    margin-right: 35px;
+    & .product-slider {
+      img {
+        width: 100%;
+      }
     }
   }
-}
-.product-prop {
-  width: 47%;
-}
-.slider {
-  margin-bottom: $space-md;
-  height: 250px;
 
-  &__item {
-    width: 100%;
-    height: 100%;
+  &__form {
+    width: 47%;
   }
 }
-.recommend {
-  h4 {
-    color: #535350;
-    font-size: 14px;
-    font-weight: 300;
-  }
-  p {
-    color: #a9a9a9;
-    font-size: 14px;
-  }
-}
-.product-prop {
-  section {
+
+.product__form {
+  .tab-content {
     background-color: #f1f1f1;
     border-radius: 3px;
     font-size: 14px;
-    .tab-content {
-      padding: 25px;
-      h2 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 20px;
-      }
-      label {
-        display: block;
-      }
+    padding: 25px;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    label {
+      display: block;
     }
   }
-  .in-stock {
-    float: right;
-  }
-  .product-info {
-    padding-bottom: 20px;
-  }
 }
-.product-prop-top {
-  margin-bottom: 15px;
-  p {
-    display: inline-block;
-  }
-}
+
 .tabs {
   .tab {
     padding: 5px 25px;
@@ -110,91 +79,7 @@ h1 {
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
 }
-.checkbox {
-  position: relative;
-  border-radius: 50%;
-  border-width: 1px;
-  border-color: #e8e8e8;
-  border-style: solid;
-  background-color: #ffffff;
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 15px;
-  &_label {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 14px;
-  }
-}
-.in-stock {
-  .checkbox {
-    position: relative;
-    border-radius: 50%;
-    border-width: 1px;
-    border-color: #a1cd03;
-    border-style: solid;
-    background-color: #a1cd03;
-    width: 22px;
-    height: 22px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 15px;
-    &_label {
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 14px;
-    }
-  }
-  .prop-type_checkbox:checked + .checkbox {
-    border-color: #a1cd03;
-  }
 
-  .prop-type_checkbox:checked + .checkbox:after {
-    position: absolute;
-    content: '';
-    border: 1px solid #fff;
-    width: 8px;
-    transform: rotate(45deg);
-    bottom: 6px;
-    left: 3px;
-  }
-
-  .prop-type_checkbox:checked + .checkbox:before {
-    position: absolute;
-    content: '';
-    border: 1px solid #fff;
-    height: 13px;
-    transform: rotate(30deg);
-    right: 6px;
-    bottom: 3px;
-  }
-}
-
-.prop-type_checkbox:checked + .checkbox {
-  border-color: #00b5c5;
-}
-
-.prop-type_checkbox:checked + .checkbox:after {
-  position: absolute;
-  content: '';
-  border: 1px solid #00b5c5;
-  width: 6px;
-  transform: rotate(45deg);
-  bottom: 4px;
-  left: 2px;
-}
-
-.prop-type_checkbox:checked + .checkbox:before {
-  position: absolute;
-  content: '';
-  border: 1px solid #00b5c5;
-  height: 9px;
-  transform: rotate(30deg);
-  right: 4px;
-  bottom: 2px;
-}
 button {
   display: inline-block;
   background-color: none;
@@ -202,11 +87,13 @@ button {
   border-radius: 50px;
 }
 .btn-buy {
+  padding: 0 $space-lg;
   background-color: #b9d500;
-  width: 140px;
   height: 30px;
+  line-height: 30px;
   color: #fff;
   transition: all 0.2s ease;
+
   &:hover {
     background-color: #00bfed;
   }

@@ -3,7 +3,7 @@
     PageHeader(:breadcrumbs='breadcrumbs')
     main.main
       ProductFilter.filter(:filters='filters')
-      .body 
+      .body
         h1.title {{ $store.getters.tText($store.state.FilteredPage.item.seoTemplate.h1, $store.state.FilteredPage.item.seoMeta) }}
         .editor(v-html='$store.getters.tText($store.state.FilteredPage.item.seoTemplate.content, $store.state.FilteredPage.item.seoMeta)')
         ProductList
@@ -51,26 +51,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 100%;
-  max-width: 1200px;
-}
-.main {
-  padding: 60px 0;
-}
-.filter {
-  float: left;
-  width: 250px;
-}
-.body {
-  padding-left: 280px;
-}
-.title {
-  color: #666666;
-  font-size: 24px;
-}
-.description {
-  color: #a9a9a9;
-  font-size: 14px;
-}
+@import '~assets/css/base/_variables.scss';
+@import '~assets/css/pages/katalog.scss';
 </style>

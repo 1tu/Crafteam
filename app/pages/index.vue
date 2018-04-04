@@ -27,7 +27,7 @@
               input.required(type="checkbox" name="process" for="process")
               .checked
               .checked-text Даю согласие на обработку персональных данных
-  section.text 
+  section
     .container
       h2 Заголовок текста
       p Предлагаем заказать создание сайта под ключ - визитку или корпоративный сайт с уникальным дизайном и полностью готовый под поисковое продвижение. При создании выполняется оптимизация под SEO. Мы создаём адаптивный дизайн, занимаемся доработкой и поддержкой уже работающих ресурсов, делаем их продуктивными и прибыльными. При заказе разработки сайта, мы поможем четко определить цели и задачи, для которых Вам нужен интеренет-ресурс и как он поможет увеличить прибыль. Мы поможем разобраться, не увеличивая стоимость услуг за консультации. Уточнить стоимость сайта под ключ в {{ $store.state.city.namePrepositional }} можно заполнв форму обратной связи.
@@ -58,7 +58,7 @@
         .item.col-sm-4
           h3 Видео высески и уличные экраны
           .video-monitor
-  section.text 
+  section
     .container
       h2 Заголовок текста
       p Предлагаем заказать создание сайта под ключ - визитку или корпоративный сайт с уникальным дизайном и полностью готовый под поисковое продвижение. При создании выполняется оптимизация под SEO. Мы создаём адаптивный дизайн, занимаемся доработкой и поддержкой уже работающих ресурсов, делаем их продуктивными и прибыльными. При заказе разработки сайта, мы поможем четко определить цели и задачи, для которых Вам нужен интеренет-ресурс и как он поможет увеличить прибыль. Мы поможем разобраться, не увеличивая стоимость услуг за консультации. Уточнить стоимость сайта под ключ в {{ $store.state.city.namePrepositional }} можно заполнв форму обратной связи.
@@ -66,7 +66,7 @@
     .container
       h2 Города в которых мы работаем
       .map-section
-  section.text 
+  section
     .container
       h2 Заголовок текста
       p Предлагаем заказать создание сайта под ключ - визитку или корпоративный сайт с уникальным дизайном и полностью готовый под поисковое продвижение. При создании выполняется оптимизация под SEO. Мы создаём адаптивный дизайн, занимаемся доработкой и поддержкой уже работающих ресурсов, делаем их продуктивными и прибыльными. При заказе разработки сайта, мы поможем четко определить цели и задачи, для которых Вам нужен интеренет-ресурс и как он поможет увеличить прибыль. Мы поможем разобраться, не увеличивая стоимость услуг за консультации. Уточнить стоимость сайта под ключ в {{ $store.state.city.namePrepositional }} можно заполнв форму обратной связи.
@@ -125,75 +125,13 @@
 import Component from 'nuxt-class-component';
 import Vue from 'vue';
 
-// import Loading from '../components/Loading.vue';
-// import Menu from '../components/Menu.vue';
-// import { mainMenu } from '../shared/menu.variables';
-// import { setTimeout } from 'timers';
-
-@Component({
-  components: {
-    // Loading,
-    // Menu
-  }
-})
+@Component()
 export default class extends Vue {
-  // public active = true;
-
-  // public menu = mainMenu;
-  // public ss = 'fsafafsfasfsf';
-
-  // public log(data) {
-  //   console.log('data', data, data.link);
-  // }
-
   public created(): void {}
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/components/index/title.scss';
-@import '~assets/css/components/index/breadcrumb.scss';
-@import '~assets/css/components/index/callback.scss';
-@import '~assets/css/components/index/text.scss';
-@import '~assets/css/components/index/goods.scss';
-@import '~assets/css/components/index/big-map.scss';
-@import '~assets/css/components/index/callback-cost.scss';
-@import '~assets/css/components/index/share.scss';
-@import '~assets/css/components/index/clients.scss';
-
-.title {
-  background: url('~assets/images/main-bg.jpg') center center;
-  background-size: cover;
-  
-}
-.led-str {
-  background: url('~assets/images/goods/led-str.png') center center;
-  background-size: cover;
-}
-.a-tbl {
-  background: url('~assets/images/goods/a-tbl.png') center center;
-  background-size: cover;
-}
-.info-stand {
-  background: url('~assets/images/goods/info-stand.png') center center;
-  background-size: cover;
-}
-.led-components {
-  background: url('~assets/images/goods/led-components.png') center center;
-  background-size: cover;
-}
-.print {
-  background: url('~assets/images/goods/print.png') center center;
-  background-size: cover;
-}
-.video-monitor {
-  background: url('~assets/images/goods/video-monitor.png') center center;
-  background-size: cover;
-}
-
-.map-section {
-    background: url('~assets/images/main-map.jpg') center center;
-    background-size: cover;
-}
+@import '~assets/css/pages/index.scss';
 </style>
 

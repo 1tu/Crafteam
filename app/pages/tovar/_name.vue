@@ -3,59 +3,47 @@
     PageHeader
     section.product
       .container
-        .product-calc
-          .product-form
-            h1 {{ $store.getters.tText($store.state.Product.item.seoTemplate.h1, $store.state.Product.item.seoMeta) }}
+        .mb-5
+          .product__info
+            h1.mt-0.mb-4 {{ $store.getters.tText($store.state.Product.item.seoTemplate.h1, $store.state.Product.item.seoMeta) }}
             .slider
               .slider__item(:style="{'background-image': 'url('+ $store.state.serverUrl + getConfigValueByKey('form') +')'}")
-            .recommend
-              h4 Рекомендованая информация
-              p Композитная адресная вывеска на дом с ламинированием, размер 60х32: Редактируемый шаблон текста. Размер подтягивается из размера (стандарт).
-          .product-prop
-            .product-prop-top
-              p Артикул:
-                span Таб-1234
-              label#inStock.in-stock
-                input.prop-type_checkbox(type="checkbox", for="inStock", name="stock", value="inStock" checked disabled)
-                .checkbox
-                .checkbox_label В наличии
+            h4 Рекомендованая конфигурация
+            p Композитная адресная вывеска на дом с ламинированием, размер 60х32: Редактируемый шаблон текста. Размер подтягивается из размера (стандарт).
+
+          .product__form
+            p.mb-4 Артикул:
+              span.ml-3 Таб-1234
             .tabs
               .tab(@click='activeTabIndex = 0' :class="{active : activeTabIndex === 0}") Описание
               //- .tab(@click='activeTabIndex = 1' :class="{active : activeTabIndex === 1}") Выбор формы
             transition(name='fade')
-              section(v-show='activeTabIndex === 0')
-                .tab-content
-                  .prop-type
-                    .product-info
-                      h2 Размер таблички:
-                      p Размер:
-                        span 45см х 75см
-                      p Размер:
-                        span 45см х 75см
-                      p Размер:
-                        span 45см х 75см
-                      p Размер:
-                        span 45см х 75см
-                    label#floor
-                      input.prop-type_checkbox(type="checkbox", for="floor", name="type", value="floor" )
-                      .checkbox
-                      .checkbox_label Сделать стенд напольным
-                        span (+1853)
-                    label#frame
-                      input.prop-type_checkbox(type="checkbox", for="frame", name="type", value="frame" )
-                      .checkbox
-                      .checkbox_label Рамка
-                        span (+1244)
-                    label#option
-                      input.prop-type_checkbox(type="checkbox", for="option", name="type", value="option" )
-                      .checkbox
-                      .checkbox_label Другие опции
-                        span (+0)
-                    p Цена:
-                      span 1234 руб.
-                    .buttons
-                      button.btn-buy Купить в 1 клик
-                      button.btn-cart Добавить в корзину
+              .tab-content(v-show='activeTabIndex === 0')
+                .prop-type
+                  .mb-4
+                    h2 Размер таблички:
+                    p Размер:
+                      span 45см х 75см
+                    p Размер:
+                      span 45см х 75см
+                    p Размер:
+                      span 45см х 75см
+                    p Размер:
+                      span 45см х 75см
+                  label.checkbox.-circle
+                    input.checkbox__input(type="checkbox")
+                    .checkbox__label Сделать стенд напольным
+                      span.ml-2 (+1853)
+
+                  label.checkbox
+                    input.checkbox__input(type="checkbox")
+                    .checkbox__label Рамка
+                      span.ml-2 (+13)
+
+                  p Цена:
+                    span 1234 руб.
+                  .buttons
+                    button.btn-buy Добавить в корзину
         .content
           .tabs
             .tab(@click='activeTabContentIndex = 0' :class="{active : activeTabContentIndex === 0}") Описание
@@ -125,32 +113,7 @@
             select
               option(v-for='address in delivery' :value='address.name') {{address.name}}
             .delivery-map
-        //- .similar-product
-          h2 Похожие товары
-          .similar-product-list
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-        //- .featured-product
-          h2 Рекоммендованые товары
-          .featured-product-list
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
-            nuxt-link(to='/')
-              img(src='~assets/images/tovar/slide.jpg')
+
         .callback
           h2 Оставьте заявку, и мы рассчитаем стоимость работ
           form.form__call
@@ -199,7 +162,5 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 @import '~assets/css/base/_variables.scss';
-@import '~assets/css/components/tovar/product.scss';
-@import '~assets/css/components/index/share.scss';
-@import '~assets/css/components/index/callback.scss';
+@import '~assets/css/pages/tovar.scss';
 </style>

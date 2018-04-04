@@ -23,5 +23,5 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/components/index/breadcrumb.scss';
+
 </style>

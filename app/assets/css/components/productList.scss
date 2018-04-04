@@ -1,4 +1,4 @@
-.list {
+.product-list {
   font-size: 0;
 
   &__item {
@@ -65,41 +65,6 @@
   &__compare {
     img {
       margin-right: 5px;
-    }
-  }
-}
-.pagination {
-  text-align: center;
-  .btn__more {
-    width: 169px;
-    height: 30px;
-    background-color: $color-grey-light;
-    border-radius: 30px;
-    text-align: center;
-    border: none;
-  }
-  &__list {
-    float: right;
-    a {
-      color: $color-text;
-      &:hover,
-      :focus {
-        text-decoration: none;
-        color: $color-primary;
-      }
-      &.active {
-        color: $color-primary;
-      }
-    }
-    ul {
-      position: relative;
-
-      li {
-        display: inline-block;
-        padding: 2px 8px;
-        background-color: $color-grey-light;
-        border-radius: 30px;
-      }
     }
   }
 }

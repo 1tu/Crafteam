@@ -75,5 +75,5 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 @import '~assets/css/base/_variables.scss';
-@import '~assets/css/components/katalog/main.scss';
+@import '~assets/css/pages/katalog.scss';
 </style>

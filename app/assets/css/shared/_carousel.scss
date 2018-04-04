@@ -1,0 +1,10 @@
+.carousel {
+  margin-bottom: $space-xl;
+  font-size: 0;
+
+  &__item {
+    width: 18%;
+    display: inline-block;
+    margin: 0 1% $space-md;
+  }
+}

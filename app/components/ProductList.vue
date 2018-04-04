@@ -26,8 +26,8 @@
 
     p(v-if='$store.state.Product.isListLoading') Загрузка...
 
-    .list
-      .list__item(v-for='item in $store.state.Product.list' :key='item.id')
+    .product-list
+      .product-list__item(v-for='item in $store.state.Product.list' :key='item.id')
         ProductCard(:data='item')
     .pagination
       button.btn__more Еще товары

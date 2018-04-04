@@ -9,8 +9,8 @@
             input.checkbox__input(v-if='item.type === "category"' type='checkbox' v-model='option.isSelected')
             input.checkbox__input(v-else type='radio' :value='option.value'
               v-model='props[item.key]' @click='onRadio(item.key, option.value)')
-            .checkbox__box
-            .checkbox__title {{ option.name }}
+            //- .checkbox__box
+            .checkbox__label {{ option.name }}
 
     button.submit(@click='search') Найти
 </template>
