@@ -1,0 +1,227 @@
+.footer {
+  background-color: $color-grey-light;
+  padding: 40px 0;
+  @media(max-width: 800px) {
+    text-align: center;
+    font-size: 12px;
+  }
+  &__right,
+  &__left {
+    display: inline-block;
+  }
+  &__left {
+    width: 51%;
+    @media(max-width: 991px) {
+      width: 70% ;
+    }
+    @media(max-width: 720px) {
+      width: 100%
+    }
+  }
+  &__right {
+    vertical-align: top;
+    width: 49%;
+    text-align: center;
+    @media(max-width: 991px) {
+      width: 70%;
+      padding-top: 20px;
+      text-align: left;
+    }
+  }
+  &__pay {
+    padding: 95px 0 0 0;
+    @media(max-width: 991px) {
+      padding-top: 10px;
+    }
+  }
+  &__align-l {
+    text-align: left;
+    @media(max-width: 800px) {
+      text-align: left;
+    }
+    @media(max-width: 520px) {
+      padding-left: 10px;
+      text-align: center;
+      padding-top: 10px;
+    }
+  }
+  &__list {
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+    font-size: 16px;
+    @media(max-width: 520px) {
+      display: block;
+      width: 100%
+    }
+    & a {
+      color: $color-text;
+      text-decoration: none;
+      border-bottom: 1px solid $color-text; 
+    }
+  }
+  &__item {
+    line-height: 25px;
+    &:first-child {
+      padding-bottom: 20px;
+    }
+  }
+  &__text {
+    color: $color-grey-dark;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  &__text,
+  &__img {
+    display: inline-block;
+  }
+  &__image {
+    padding-left: 15px;
+    vertical-align: bottom;
+  }
+  &__info {
+    padding-top: 10px;
+    & a {
+      color: $color-text;
+      text-decoration: none;
+      border-bottom: 1px solid $color-text;
+    }
+  }
+  &__link {
+    padding-top: 80px;
+    @media(max-width: 991px) {
+      padding-top: 20px;
+    }
+    & a {
+      color: $color-text;
+      margin-right: 50px;
+      border-bottom: 1px solid $color-text;
+      text-decoration: none;
+      @media(max-width: 991px) {
+        margin: 0 10px;
+      }
+    }
+  }
+  &__map {
+    text-align: center;
+    @media(max-width: 991px) {
+      text-align: left;
+    }
+    @media(max-width: 650px) {
+      text-align: center;
+    }
+  }
+  &__map-img {
+    height: 227px;
+    text-align: center;
+    @media(max-width: 650px) {
+      width: 90%;
+    }
+  }
+  &__right-1,
+  &__right-2 {
+    display: inline-block;
+    font-size: 14px;
+    color: $color-text;
+    vertical-align: top;
+    padding-top: 8px;
+    line-height: 25px;
+    @media(max-width: 991px) {
+      padding-right: 18px;
+    }
+    & a {
+      color: $color-text;
+    }
+  }
+  &__right-1 {
+    text-align: left;
+  }
+  &__right-2 {
+    text-align: right;
+    @media(max-width: 698px) {
+      text-align: left;
+    }
+  }
+  &__item-r {
+    & a {
+      text-decoration: none;
+      border-bottom: 1px solid $color-text; 
+    }
+  }
+  &__social {
+    padding-top: 30px;
+  }
+  &__all {
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__mes,
+  &__soc {
+    display: inline-block;
+    @media(max-width: 576px) {
+      display: block; 
+    }
+  }
+  &__soc {
+    padding-left: 50px;
+    @media(max-width: 576px) {
+      padding: 10px 0; 
+    }
+  }
+  &__icon {
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  &__iconTG {
+    background-image: url("~/assets/images/social/telegram.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/telegram-c.png");
+    }
+  }  
+  &__iconVB {
+    background-image: url("~/assets/images/social/viber.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/viber-c.png");
+      }  
+    }
+  &__iconWA {
+    background-image: url("~/assets/images/social/whatsapp.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/whatsapp-c.png");
+      }  
+    }
+  &__iconVK {
+    background-image: url("~/assets/images/social/vk.png");
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/vk-c.png");
+      }  
+    }
+  &__iconIG {
+    background-image: url("~/assets/images/social/instagram.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/instagram-c.png");
+      }  
+    } 
+  &__details-item {
+    display: inline-block;
+    padding: 20px 10px 0;
+    @media(max-width: 991px) {
+      padding: 5px 0 0 0;
+    }
+  }  
+}

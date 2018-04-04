@@ -9,7 +9,6 @@ body {
   height: 100%;
   width: 100%;
   color: $color-text;
-
   p {
     margin: 0;
   }
@@ -88,7 +87,11 @@ body {
     line-height: 13px;
   }
 }
-
+.container {
+  margin: 0 auto;
+  max-width: 1170px;
+  padding: 0
+}
 .clearfix:after {
   content: '';
   display: table;

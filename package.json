@@ -22,8 +22,7 @@
     "postprod": "rimraf ./dist/css/scripts",
     "predev": "gulp --env=development",
     "dev": "cross-env NODE_ENV=development nuxt build",
-    "start":
-      "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development node server/server.js\" --names \"🥛,📦\" --prefix name --kill-others",
+    "start": "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development node server/server.js\" --names \"🥛,📦\" --prefix name --kill-others",
     "start:nuxt": "concurrently \"gulp watcher --env=development\" \"cross-env NODE_ENV=development nuxt\" --names \"🥛,📦\" --prefix name --kill-others",
     "cache": "node server/cache/heat_generate.js"
   },
