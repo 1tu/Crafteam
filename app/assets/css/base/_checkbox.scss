@@ -1,49 +1,39 @@
 .checkbox {
   display: block;
   position: relative;
-  padding-left: 24px;
-  cursor: pointer;
-
+  cursor: pointer; 
   &__input {
     display: none;
   }
-
-  &__box {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    margin-top: 1px;
-    transform: translateY(-50%);
-    width: 13px;
-    height: 13px;
-    border: 1px solid $color-grey-dark;
-  }
-
   &__label {
     font-size: $font-size-m;
     display: inline-block;
     vertical-align: middle;
-
+    position: relative;
+    padding-left: 24px;
     &:before,
     &:after {
       position: absolute;
       content: '';
       top: 50%;
     }
-
     &:before {
       width: 14px;
       height: 14px;
-      left: 0;
+      right: 99%;
       transform: translateY(-50%);
       border: 1px solid $color-grey-dark;
     }
+    @media(max-width: 745px) {
+      padding-left: 10px;
+    }
+    @media(max-width: 375px) {
+      padding-left: 4px;
+    }
   }
-
   &__input:checked + .checkbox__label:before {
     border-color: $color-secondary;
   }
-
   &__input:checked + .checkbox__label:after {
     position: absolute;
     content: '';
@@ -54,16 +44,29 @@
     border-width: 0 0 2px 2px;
     height: 6px;
     top: 50%;
-    left: 3px;
+    right: 100%;
     transform: translateY(-50%) rotate(-45deg);
   }
-
   &.-circle {
     .checkbox__label:before {
       border-radius: 50%;
     }
     .checkbox__label:after {
       height: 5px;
+    }
+  }
+  &.-large {
+    padding-left: 30px;
+    .checkbox__label:before {
+      width: 17px;
+      height: 17px;
+    }
+  }
+  &.-large {
+    padding-left: 30px;
+    .checkbox__label:after {
+      width: 10px;
+      height: 8px;
     }
   }
 }

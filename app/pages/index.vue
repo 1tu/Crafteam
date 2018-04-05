@@ -15,25 +15,25 @@
         a(href='#cost') Цены
         a(href='#samples') Образцы
         a(href='#video') Видео
-  .callback
+  .form
     .container
-      h2 Оставьте заявку, и мы рассчитаем стоимость работ
-      form.form__call
-          input(type="hidden" name="nameButton" value="Блок Footer")
-          input(type="text" name="name" placeholder="Ваше имя" required)
-          input(type="text" name="phone" placeholder="Ваш номер телефона" required)
-          button.btn Оставить заявку
-          label#process.process
-              input.required(type="checkbox" name="process" for="process")
-              .checked
-              .checked-text Даю согласие на обработку персональных данных
+      .form__callback
+        p.mb-4 Оставьте заявку, и мы рассчитаем стоимость работ
+        form
+          input.form__input(type="hidden" name="nameButton" value="Блок Footer")
+          input.form__input(type="text" name="name" placeholder="Ваше имя" required)
+          input.form__input(type="text" name="phone" placeholder="Ваш номер телефона" required)
+          button.btn.form__button Оставить заявку
+          label.checkbox.-large.mt-4
+            input.checkbox__input(type="checkbox")
+            .checkbox__label Даю согласие на обработку персональных данных
   section
     .container
-      h2 Заголовок текста
+      h3 Заголовок текста
       p Предлагаем заказать создание сайта под ключ - визитку или корпоративный сайт с уникальным дизайном и полностью готовый под поисковое продвижение. При создании выполняется оптимизация под SEO. Мы создаём адаптивный дизайн, занимаемся доработкой и поддержкой уже работающих ресурсов, делаем их продуктивными и прибыльными. При заказе разработки сайта, мы поможем четко определить цели и задачи, для которых Вам нужен интеренет-ресурс и как он поможет увеличить прибыль. Мы поможем разобраться, не увеличивая стоимость услуг за консультации. Уточнить стоимость сайта под ключ в {{ $store.state.city.namePrepositional }} можно заполнв форму обратной связи.
   section.goods
     .container
-      h2 Товары и услуги
+      h3 Товары и услуги
       nuxt-link(to='/')
         .item.col-sm-4
           h3 Бегущие строки
@@ -60,34 +60,40 @@
           .video-monitor
   section
     .container
-      h2 Заголовок текста
+      h3 Заголовок текста
       p Предлагаем заказать создание сайта под ключ - визитку или корпоративный сайт с уникальным дизайном и полностью готовый под поисковое продвижение. При создании выполняется оптимизация под SEO. Мы создаём адаптивный дизайн, занимаемся доработкой и поддержкой уже работающих ресурсов, делаем их продуктивными и прибыльными. При заказе разработки сайта, мы поможем четко определить цели и задачи, для которых Вам нужен интеренет-ресурс и как он поможет увеличить прибыль. Мы поможем разобраться, не увеличивая стоимость услуг за консультации. Уточнить стоимость сайта под ключ в {{ $store.state.city.namePrepositional }} можно заполнв форму обратной связи.
   section.big-map
     .container
-      h2 Города в которых мы работаем
+      h3 Города в которых мы работаем
       .map-section
   section
     .container
-      h2 Заголовок текста
+      h3 Заголовок текста
       p Предлагаем заказать создание сайта под ключ - визитку или корпоративный сайт с уникальным дизайном и полностью готовый под поисковое продвижение. При создании выполняется оптимизация под SEO. Мы создаём адаптивный дизайн, занимаемся доработкой и поддержкой уже работающих ресурсов, делаем их продуктивными и прибыльными. При заказе разработки сайта, мы поможем четко определить цели и задачи, для которых Вам нужен интеренет-ресурс и как он поможет увеличить прибыль. Мы поможем разобраться, не увеличивая стоимость услуг за консультации. Уточнить стоимость сайта под ключ в {{ $store.state.city.namePrepositional }} можно заполнв форму обратной связи.
   .callback-cost
     .container
      .callback-cost-wr
-      h2 Оставьте заявку, и мы рассчитаем стоимость работ
+      h3 Оставьте заявку, и мы рассчитаем стоимость работ
       form.form__call
+        .callback-cost__left
           input(type="hidden" name="nameButton" value="Блок Footer")
           input(type="text" name="name" placeholder="Ваше имя" required)
           input(type="text" name="phone" placeholder="Ваш номер телефона" required)
-          button.btn Оставить заявку
-          label#process.process
-              input.required(type="checkbox" name="process" for="process")
-              .checked
-              .checked-text Даю согласие на обработку персональных данных
-  section.share
-    .container
-      .share-container
-        h2 Внимания АКЦИЯ!
-        p Интересует изготовление офисных табличек? Мы изготовим офисные таблички из оргстекла в {{ $store.state.city.namePrepositional }}. Используем прозрачный пластик для настольных изделий, а также обычный пластик пвх. Кроме того, таблички могут поставляться на металлических дистанционых держателях.
+          .callback-cost__none1
+            label.checkbox.-large.mt-2
+              input.checkbox__input(type="checkbox")
+              .checkbox__label Даю согласие на обработку персональных данных
+        .callback-cost__right 
+          textarea.callback-cost__textarea(type="text" name="text" placeholder="Опишите задачу (по желанию)" required) 
+          .callback-cost__none2
+            label.checkbox.-large.mt-2
+              input.checkbox__input(type="checkbox")
+              .checkbox__label Даю согласие на обработку персональных данных
+          button.btn Оставить заявку  
+  .container
+    section.panel
+      h2.mb-4 Внимания АКЦИЯ!
+      p Интересует изготовление офисных табличек? Мы изготовим офисные таблички из оргстекла в {{ $store.state.city.namePrepositional }}. Используем прозрачный пластик для настольных изделий, а также обычный пластик пвх. Кроме того, таблички могут поставляться на металлических дистанционых держателях.
   section.clients
     .container
       h2 Наши клиенты
@@ -107,18 +113,18 @@
         img(src='~assets/images/partners/zhkh-gorki.png' alt='ЖКХ Горки').zhkh-gorki
       .item.col-sm-3
         img(src='~assets/images/partners/avetti.png' alt='Avetti').avetti
-  .callback
+  .form
     .container
-      h2 Оставьте заявку, и мы рассчитаем стоимость работ
-      form.form__call
-          input(type="hidden" name="nameButton" value="Блок Footer")
-          input(type="text" name="name" placeholder="Ваше имя" required)
-          input(type="text" name="phone" placeholder="Ваш номер телефона" required)
-          button.btn Оставить заявку
-          label#process.process
-              input.required(type="checkbox" name="process" for="process")
-              .checked
-              .checked-text Даю согласие на обработку персональных данных
+      .form__callback
+        p.mb-4 Оставьте заявку, и мы рассчитаем стоимость работ
+        form
+          input.form__input(type="hidden" name="nameButton" value="Блок Footer")
+          input.form__input(type="text" name="name" placeholder="Ваше имя" required)
+          input.form__input(type="text" name="phone" placeholder="Ваш номер телефона" required)
+          button.btn.form__button Оставить заявку
+          label.checkbox.-large.mt-4
+            input.checkbox__input(type="checkbox")
+            .checkbox__label Даю согласие на обработку персональных данных
 </template>
 
 <script lang='ts'>

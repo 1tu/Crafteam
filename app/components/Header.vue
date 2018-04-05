@@ -42,12 +42,12 @@
               a(href="https://www.instagram.com/alex_halizov/" target="_blank")
                 .social__icon.social__iconIG
           .social__all
-            p Время работы
+            p.m-0 Время работы
             p Пн-сб: 07:00-21:00
             span Выходной - Вс.
 
           .social__phone.social__all
-            p Тел.:
+            p.m-0 Тел.:
               a(href="tel:88043337060", title="88043337060")  8 (804) 333-70-60
             a(href="tel:84953000000", title="84953000000")  8 (495) 300-00-00
             p.social__par Звонок по России бесплатный
