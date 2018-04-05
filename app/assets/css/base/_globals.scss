@@ -11,6 +11,11 @@ body {
   color: $color-text;
 }
 
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
 h1,
 h2,
 h3,
@@ -71,22 +76,22 @@ h3 {
     }
   }
 }
+
 ul,
 ol {
   list-style: none;
   padding: 0;
+}
 
+.list {
+  list-style-image: url('~assets/images/list-icon.png');
+  margin-left: 35px;
   & > li {
     margin-bottom: $space-md;
     &:last-child {
       margin-bottom: 0;
     }
   }
-}
-
-.list {
-  list-style-image: url('~assets/images/list-icon.png');
-  margin-left: 35px;
 }
 ol > li {
   vertical-align: middle;
@@ -112,5 +117,15 @@ ol > li:before {
 .editor {
   h1 {
     font-size: $font-size-xl;
+  }
+  li {
+    list-style-image: url('~assets/images/list-icon.png');
+    margin-left: 35px;
+    & > li {
+      margin-bottom: $space-md;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

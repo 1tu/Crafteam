@@ -28,7 +28,8 @@
           nuxt-link(to='/') номер кабинета,
           nuxt-link(to='/') туалет,
           nuxt-link(to='/') служебное помещение
-      ProductList
+
+      ProductList(:filters='filters')
 </template>
 
 <script lang='ts'>

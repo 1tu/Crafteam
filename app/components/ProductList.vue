@@ -8,7 +8,7 @@
 
       .settings__item
         span.settings__name Показывать по
-        select.settings__select(v-model='displayCount')
+        select.settings__select(v-model='filters.perPage')
           option(value='10') 10
           option(value='25') 25
 
@@ -25,44 +25,45 @@
 
 
     p(v-if='$store.state.Product.isListLoading') Загрузка...
+    Pagination(:max='$store.getters["Product/pageCount"](filters.perPage)' :current='filters.page' :url='url')
 
     .product-list
-      .product-list__item(v-for='item in $store.state.Product.list' :key='item.id')
+      .product-list__item(v-for='item in $store.getters["Product/listByPage"](filters.page, filters.perPage)' :key='item.id')
         ProductCard(:data='item')
-    .pagination
-      button.btn__more Еще товары
-      .pagination__prev
-        nuxt-link(to='/')
-      .pagination__list
-        ul
-          li
-            nuxt-link(to='/') 1
-          li
-            nuxt-link(to='/') 2
-          li
-            nuxt-link(to='/') 3
-          li
-            nuxt-link(to='/') 4
-          li
-            nuxt-link(to='/') 5
-          li ...
-          li
-            nuxt-link(to='/') 48
-      .pagination__next
-        nuxt-link(to='/')
+
+    Pagination(:max='$store.getters["Product/pageCount"](filters.perPage)' :current='filters.page' :url='url')
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import qs from 'query-string';
 import Component from 'nuxt-class-component';
-import ProductCard from '../components/ProductCard.vue';
+import ProductCard from './ProductCard.vue';
+import Pagination from './Pagination.vue';
 
-@Component({ components: { ProductCard } })
+import { Prop, Watch } from 'vue-property-decorator';
+import { CatalogFilters } from '../shared/types/category.entity';
+
+@Component({ components: { ProductCard, Pagination } })
 export default class extends Vue {
-  public sortBy = 'price';
-  public displayCount = 10;
+  @Prop() public filters: CatalogFilters;
 
-  public created() {}
+  public sortBy = 'price';
+  public url;
+
+  public created() {
+    this.url = this._getUrl();
+  }
+
+  @Watch('$route.query')
+  private _onChangeRoute() {
+    this.filters.page = parseInt(this.$route.query.page);
+    this.url = this._getUrl();
+  }
+
+  private _getUrl() {
+    return this.$route.path + '?' + qs.stringify({ ...this.$route.query, page: undefined });
+  }
 }
 </script>
 

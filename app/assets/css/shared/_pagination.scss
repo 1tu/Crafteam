@@ -1,0 +1,35 @@
+.pagination {
+  text-align: center;
+  margin: $space-lg 0;
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    margin-left: $space-md;
+    color: $color-text;
+    text-decoration: none !important;
+
+    &:hover {
+      color: $color-primary;
+      text-decoration: none;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &.nuxt-link-exact-active:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      padding-bottom: 100%;
+      transform: translate(-50%, -50%);
+      border-radius: 50px;
+      background-color: $color-grey;
+      z-index: -1;
+    }
+  }
+}

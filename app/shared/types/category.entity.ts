@@ -3,6 +3,7 @@ import { ProductCategoryEntity } from './product.entity';
 import { SeoMetaEntity } from './seoMeta.entity';
 import { SeoTemplateEntity } from './seoTemplate.entity';
 import { ShopEntity } from './shop.entity';
+import { FilteredPageFilters } from './filteredPage.entity';
 
 export class CategoryEntity extends AEntityTimestamp {
   name: string;
@@ -19,4 +20,9 @@ export class CategoryShopEntity extends AEntityBase {
   category: CategoryEntity;
   seoTemplate: SeoTemplateEntity;
   seoMeta: SeoMetaEntity;
+}
+
+export interface CatalogFilters extends FilteredPageFilters {
+  page: number;
+  perPage: number;
 }

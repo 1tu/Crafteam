@@ -15,7 +15,17 @@ const state = (): ProductStoreState => ({
 });
 const pureState = state();
 
-const getters = getter(pureState, {});
+const getters = getter(pureState, {
+  listByPage(state) {
+    return (pageNum: string, perPage: string) => {
+      const start = (parseInt(pageNum) - 1) * parseInt(perPage);
+      return state.list.slice(start, start + parseInt(perPage));
+    };
+  },
+  pageCount(state) {
+    return (perPage: number) => Math.ceil(state.list.length / perPage);
+  }
+});
 
 const mutations = mutation(pureState, {
   list(state, list: ProductEntity[]) {

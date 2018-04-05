@@ -19,6 +19,9 @@ const state = (): CategoryStoreState => ({
 const pureState = state();
 
 const getters = getter(pureState, {
+  base(state) {
+    return state.listBase.find(c => c.id === state.currentBaseId);
+  },
   idByNameTranslit(state) {
     return (name: string) => (state.listBase.find(c => c.nameTranslit === name) || ({} as CategoryEntity)).id;
   },
