@@ -45,7 +45,7 @@
             .footer__info    
               nuxt-link(to='/oplata') Подробнее об оплате
             .footer__link
-              a(href="/", title="Гарантия на товар") Гарантия на товар
+              nuxt-link(to='/garantii') Гарантия на товар
               a(href="/", title="Возврат некачественного товара") Возврат некачественного товара
         .footer__right
           .footer__map#map 
@@ -87,17 +87,17 @@
                 .footer__icon.footer__iconVK
               a.footer__all(href="https://www.instagram.com/alex_halizov/" target="_blank")
                 .footer__icon.footer__iconIG
-          ul.footer__details
-            li.footer__details-item
-              p Юридические реквизиты: ИП Хализов А.С.
-            li.footer__details-item
-              p ИНН 260806481409
-            li.footer__details-item
-              p ОГРН 315265100027855
-            li.footer__details-item
-              p р/с 40802810200000153158
-            li.footer__details-item
-              p АО "Тинкофф Банк" 044525974
+        ul.footer__details
+          li.footer__details-item
+            p Юридические реквизиты: ИП Хализов А.С.
+          li.footer__details-item
+            p ИНН 260806481409
+          li.footer__details-item
+            p ОГРН 315265100027855
+          li.footer__details-item
+            p р/с 40802810200000153158
+          li.footer__details-item
+            p АО "Тинкофф Банк" 044525974
 
 
 </template>

@@ -44,7 +44,7 @@
           .social__all
             p Время работы
             p Пн-сб: 07:00-21:00
-            span.info-weekend Выходной - Вс.
+            span Выходной - Вс.
 
           .social__phone.social__all
             p Тел.:
