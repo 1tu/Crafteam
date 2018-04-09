@@ -10,7 +10,7 @@
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    padding-left: 24px;
+    padding-left: 30px;
     &:before,
     &:after {
       position: absolute;
@@ -20,15 +20,12 @@
     &:before {
       width: 14px;
       height: 14px;
-      right: 99%;
+      left: 0;
       transform: translateY(-50%);
       border: 1px solid $color-grey-dark;
     }
     @media(max-width: 745px) {
-      padding-left: 10px;
-    }
-    @media(max-width: 375px) {
-      padding-left: 4px;
+      padding-left: 25px;
     }
   }
   &__input:checked + .checkbox__label:before {
@@ -44,7 +41,7 @@
     border-width: 0 0 2px 2px;
     height: 6px;
     top: 50%;
-    right: 100%;
+    left: 3px;
     transform: translateY(-50%) rotate(-45deg);
   }
   &.-circle {
@@ -56,14 +53,10 @@
     }
   }
   &.-large {
-    padding-left: 30px;
     .checkbox__label:before {
       width: 17px;
       height: 17px;
     }
-  }
-  &.-large {
-    padding-left: 30px;
     .checkbox__label:after {
       width: 10px;
       height: 8px;

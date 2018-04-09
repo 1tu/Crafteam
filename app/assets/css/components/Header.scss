@@ -1,37 +1,38 @@
-.header {
-  color: $color-text;
-  font-size: 14px;
-  font-weight: lighter;
-  @media(max-width: 630px) {
-    font-size: 12px;
-    font-weight: 700; 
-  }
-  &__container {
-    background-color: $color-grey-light;
-    padding: $space-md;
-  }
-  &__list {
-    text-align: center;
-  }
-  &__item {
-    display: inline-block;
-    width: 16%;
-    @media(max-width: 991px) {
-      vertical-align: middle; 
-    }
-    @media(max-width: 540px) {
-      display: block;
-      margin: 0 auto;
-      font-size: 14px;
-      font-weight: 300;
-      width: 100%
+// .header {
+//   color: $color-text;
+//   font-size: 14px;
+//   font-weight: lighter;
+//   @media(max-width: 630px) {
+//     font-size: 12px;
+//     font-weight: 700; 
+//   }
+//   &__container {
+//     background-color: $color-grey-light;
+//     padding: $space-md;
+//   }
+//   &__list {
+//     text-align: center;
+//   }
+//   &__item {
+//     display: inline-block;
+//     width: 16%;
+//     @media(max-width: 991px) {
+//       vertical-align: middle;
+//       width: 30%;
+//     }
+//     @media(max-width: 540px) {
+//       display: block;
+//       margin: 0 auto;
+//       font-size: 14px;
+//       font-weight: 300;
+//       width: 100%
 
-    }
-    & a {
-    color: $color-text
-    }
-  }
-}
+//     }
+//     & a {
+//     color: $color-text
+//     }
+//   }
+// }
 .social {
   padding: $space-md;
   @media(max-width: 991px) {
@@ -39,12 +40,12 @@
   }
   &__logo,
   &__block {
-    display: inline-block; 
+    display: inline-block;
   }
   &__logo {
+    vertical-align: middle;
     @media(max-width: 1200px) {
       width: 10%; 
-      vertical-align: top;
     }
     @media(max-width: 991px) {
       width: 20%; 
@@ -54,6 +55,7 @@
     display: inline-block;
     width: 23%;
     text-align: left;
+    vertical-align: middle;
     @media(max-width: 991px) {
       width: 30%;
       text-align: center;
@@ -80,10 +82,13 @@
     }
   }
   &__mess {
-    vertical-align: top;
     line-height: 25px
   }
   &__phone {
+    vertical-align: top;
+    @media(max-width: 1200px) {
+      text-align: center;
+    }
     & a {
       color: $color-text;
       &:hover {
@@ -102,10 +107,9 @@
   }
   &__mail {
     text-align: right;
-    vertical-align: top;
     @media(max-width: 991px) {
       text-align: center;
-      width: 50%;
+      width: 40%;
     }
     @media(max-width: 520px) {
       width: 70%;

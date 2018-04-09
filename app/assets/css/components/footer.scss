@@ -1,9 +1,9 @@
 .footer {
   background-color: $color-grey-light;
   padding: 40px 0;
-  @media(max-width: 800px) {
+  @media(max-width: 991px) {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
   }
   &__right,
   &__left {
@@ -11,6 +11,7 @@
   }
   &__left {
     width: 51%;
+    text-align: center;
     @media(max-width: 991px) {
       width: 70% ;
     }
@@ -23,9 +24,8 @@
     width: 49%;
     text-align: center;
     @media(max-width: 991px) {
-      width: 70%;
+      width: 100%;
       padding-top: 20px;
-      text-align: left;
     }
   }
   &__pay {
@@ -35,14 +35,8 @@
     }
   }
   &__align-l {
-    text-align: left;
-    @media(max-width: 800px) {
-      text-align: left;
-    }
-    @media(max-width: 520px) {
-      padding-left: 10px;
-      text-align: center;
-      padding-top: 10px;
+    @media(max-width: 521px) {
+      padding-top: 15px;
     }
   }
   &__list {
@@ -104,12 +98,6 @@
   }
   &__map {
     text-align: center;
-    @media(max-width: 991px) {
-      text-align: left;
-    }
-    @media(max-width: 650px) {
-      text-align: center;
-    }
   }
   &__map-img {
     height: 227px;
@@ -135,11 +123,17 @@
   }
   &__right-1 {
     text-align: left;
+    @media(max-width: 495px) {
+      text-align: center;
+    }
   }
   &__right-2 {
     text-align: right;
     @media(max-width: 698px) {
       text-align: left;
+    }
+    @media(max-width: 495px) {
+      text-align: center;
     }
   }
   &__item-r {
@@ -219,6 +213,7 @@
     } 
   &__details {
     padding-top: 20px;
+    text-align: center;
     @media(max-width: 991px) {
       padding-top: 5px;
     }

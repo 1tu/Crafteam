@@ -2,29 +2,27 @@
   header.header
     .header__container
       .container
-        ul.header__list
-          li.header__item
-            nuxt-link(to='/nashi-klienty') Наши клиенты
-            //- img(src='~/assets/images/infoMenu/nashi-klienty.png')
-          li.header__item
-            nuxt-link(to='/o-kompanii') О компании
-            //- img(src='/assets/images/infoMenu/o-kompanii.png')
-          li.header__item
-            nuxt-link(to='/oplata') Оплата
-            //- img(src='~assets/images/infoMenu/oplata.png')
-          li.header__item
-            nuxt-link(to='/dostavka') Доставка
-            //- img(src='~assets/images/infoMenu/dostavka.png')
-          li.header__item
-            nuxt-link(to='/punkty-samovyvoza') Пункты самовывоза
-            //- img(src='~assets/images/infoMenu/punkty-samovyvoza.png')
-          li.header__item
-            nuxt-link(to='/avtorizatsiya') Авторизация
-            //- img(src='~assets/images/infoMenu/avtorizatsiya.png')
+        //- ul.header__list
+        //-   li.header__item
+        //-     nuxt-link(to='/o-kompanii') О компании
+        //-     //- img(src='/assets/images/infoMenu/o-kompanii.png')
+        //-   li.header__item
+        //-     nuxt-link(to='/oplata') Оплата
+        //-     //- img(src='~assets/images/infoMenu/oplata.png')
+        //-   li.header__item
+        //-     nuxt-link(to='/dostavka') Доставка
+        //-     //- img(src='~assets/images/infoMenu/dostavka.png')
+        //-   li.header__item
+        //-     nuxt-link(to='/punkty-samovyvoza') Пункты самовывоза
+        //-     //- img(src='~assets/images/infoMenu/punkty-samovyvoza.png')
+        //-   li.header__item
+        //-     nuxt-link(to='/avtorizatsiya') Авторизация
+        //-     //- img(src='~assets/images/infoMenu/avtorizatsiya.png')
 
     .container
       .social
-        img.social__logo(src="../assets/images/logo.png", alt="Krafteam")
+        nuxt-link(to='/')
+          img.social__logo(src="../assets/images/logo.png", alt="Krafteam")
         .social__block
           .social__mess.social__all
             .social__mes
@@ -43,8 +41,8 @@
                 .social__icon.social__iconIG
           .social__all
             p.m-0 Время работы
-            p Пн-сб: 07:00-21:00
-            span Выходной - Вс.
+            p.m-0 Пн-сб: 07:00-21:00
+            p.m-0 Выходной - Вс.
 
           .social__phone.social__all
             p.m-0 Тел.:
@@ -61,19 +59,19 @@
         .container
           ul.nav__list
             li.nav__item
-              nuxt-link(to='/') Главная
-            li.nav__item
               ul.nav__child
                 li.nav__child-item(v-for='category in categoryList')
                   nuxt-link(:to='category.url') {{ category.name }}
               nuxt-link(to='/katalog/tablichki') Каталог товаров
                 img.nav__bottom(src='~assets/images/menu-arrow.png')
             li.nav__item
-                nuxt-link(to='/portfolio') Портфолио
+              nuxt-link(to='/o-kompanii') О компании
             li.nav__item
-                nuxt-link(to='/otzyvy-klientov') Отзывы клиентов
+              nuxt-link(to='/oplata') Оплата
             li.nav__item
-                nuxt-link(to='/kontakty') Контакты
+              nuxt-link(to='/dostavka') Доставка    
+            li.nav__item
+              nuxt-link(to='/kontakty') Контакты
           //- .menu-find
           //-   input.find(type='text' placeholder="Найти")
           //-   button.btn-find(type='submit')

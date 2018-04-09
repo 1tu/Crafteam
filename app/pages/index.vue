@@ -3,7 +3,7 @@
  .wr
   section.title
     .container
-      h1 Рекламное агенство в {{ $store.state.city.namePrepositional }}
+      h1.m-0 Рекламное агенство в {{ $store.state.city.namePrepositional }}
       p Компания ХХХ в {{ $store.state.city.namePrepositional }}
   section.breadcrumb
     .container
@@ -35,27 +35,27 @@
     .container
       h3 Товары и услуги
       nuxt-link(to='/')
-        .item.col-sm-4
+        .goods__item
           h3 Бегущие строки
           .led-str
       nuxt-link(to='/')
-        .item.col-sm-4
+        .goods__item
           h3 Изготовление табличек
           .a-tbl
       nuxt-link(to='/')
-        .item.col-sm-4
+        .goods__item
           h3 Изготовление стендов
           .info-stand
       nuxt-link(to='/')
-        .item.col-sm-4
+        .goods__item
           h3 Комплектующие для бегущих строк
           .led-components
       nuxt-link(to='/')
-        .item.col-sm-4
+        .goods__item
           h3 Печать и монтаж баннеров
           .print
       nuxt-link(to='/')
-        .item.col-sm-4
+        .goods__item
           h3 Видео высески и уличные экраны
           .video-monitor
   section
@@ -97,34 +97,22 @@
   section.clients
     .container
       h2 Наши клиенты
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/gazprom.png' alt='Газпром').gazprom
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/mc.png' alt='Мебельсити').mc
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/mebel-int.png' alt='Мебель в интерьере').mebel-int
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/gallery.png' alt='ТЦ Галлерея').gallery
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/sengiley.png' alt='Сингелей').sengiley
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/dedal.png' alt='Dedal').dedal
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/zhkh-gorki.png' alt='ЖКХ Горки').zhkh-gorki
-      .item.col-sm-3
+      .clients__item
         img(src='~assets/images/partners/avetti.png' alt='Avetti').avetti
-  .form
-    .container
-      .form__callback
-        p.mb-4 Оставьте заявку, и мы рассчитаем стоимость работ
-        form
-          input.form__input(type="hidden" name="nameButton" value="Блок Footer")
-          input.form__input(type="text" name="name" placeholder="Ваше имя" required)
-          input.form__input(type="text" name="phone" placeholder="Ваш номер телефона" required)
-          button.btn.form__button Оставить заявку
-          label.checkbox.-large.mt-4
-            input.checkbox__input(type="checkbox")
-            .checkbox__label Даю согласие на обработку персональных данных
 </template>
 
 <script lang='ts'>

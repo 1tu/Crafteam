@@ -52,9 +52,9 @@
     border-color: #e8e8e8;
     border-style: solid;
     width: 90%;
-    height: 40px;
+    height: 14px;
     border-radius: 50px;
-    padding: 20px;
+    padding: 12px;
     &:focus {
       outline: none;
     }
@@ -69,9 +69,11 @@
     border-color: #e8e8e8;
     border-style: solid;
     width: 100%;
-    height: 95px;
+    height: 77px;
     border-radius: 15px;
-    padding: 20px;
+    padding: 8px;
+    font-weight: 300;
+    font-family: inherit;
     &:focus {
       outline: none;
     }

@@ -1,29 +1,59 @@
 .clients {
   padding-bottom: 100px;
   border-bottom: 1px solid #f0f0f0;
-  .item {
-    line-height: 190px;
+  text-align: center;
+  &__item {
+    line-height: 174px;
+    width: 21%;
+    display: inline-block;
+    @media(max-width: 1200px) {
+      width: 30%;
+      line-height: 120px;
+    }
+    @media(max-width: 715px) {
+      width: 50%;
+    }
+    @media(max-width: 500px) {
+      width: 100%;
+    }
+    & img {
+      vertical-align: middle;
+    }
   }
 }
 
 .goods {
   padding-top: 20px;
   margin-bottom: 100px;
+  text-align: center;
   h2 {
     color: #666;
     font-size: 24px;
     margin-bottom: 35px;
   }
-}
-.item {
-  box-shadow: 0px 4px 16px 0px rgba(34, 34, 34, 0.1);
-  height: 200px;
-  text-align: center;
-  h3 {
-    font-size: 18px;
-    color: #666;
-    font-weight: 400;
+  &__item {
+    box-shadow: 0px 4px 16px 0px rgba(34, 34, 34, 0.1);
+    height: 200px;
+    width: 31%;
+    text-align: center;
+    display: inline-block;
+    margin: 8px;
+    @media(max-width: 1200px) {
+      width: 45%;
+    }
+    @media(max-width: 991px) {
+      width: 47%;
+    }
+    @media(max-width: 775px) {
+      width: 80%;
+    }
+    h3 {
+      font-size: 18px;
+      color: #666;
+      font-weight: 400;
+    }
   }
+  
 }
 .led-str,
 .a-tbl,
@@ -34,6 +64,12 @@
   width: 70%;
   height: 60%;
   margin: 0 auto;
+  @media(max-width: 991px) {
+    width: 90%;
+  }
+  @media(max-width: 775px) {
+    width: 80%;
+  }
 }
 
 .title {
@@ -41,8 +77,8 @@
   color: #fff;
   h1 {
     font-size: 35px;
-    margin-bottom: 20px;
-    margin-top: 100px;
+    padding-bottom: 20px;
+    padding-top: 100px;
     font-weight: 700;
   }
   p {
@@ -53,33 +89,41 @@
 .title {
   background: url('~assets/images/main-bg.jpg') center center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .led-str {
   background: url('~assets/images/goods/led-str.png') center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .a-tbl {
   background: url('~assets/images/goods/a-tbl.png') center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .info-stand {
   background: url('~assets/images/goods/info-stand.png') center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .led-components {
   background: url('~assets/images/goods/led-components.png') center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .print {
   background: url('~assets/images/goods/print.png') center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .video-monitor {
   background: url('~assets/images/goods/video-monitor.png') center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .map-section {
   background: url('~assets/images/main-map.jpg') center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
