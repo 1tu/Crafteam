@@ -1,0 +1,137 @@
+.card {
+  transition: box-shadow 0.2s ease-in;
+  display: block;
+  position: relative;
+  background-color: $color-grey-light;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 5px;
+    .card__button {
+      background-color: $color-important-dark;
+    }
+  }
+
+  &__header {
+    font-size: $font-size-s;
+    font-weight: 300;
+    padding: $space-md;
+  }
+
+  &__slider {
+    box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 2px;
+    background-color: darken($color-grey-light, 3%);
+
+    height: 160px;
+    &-item {
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .card__tag {
+    position: absolute;
+    right: -3px;
+    top: 35px;
+    box-shadow: rgba(0, 0, 0, 0.4) -2px 1px 3px;
+    border-top-left-radius: $space-sm;
+    border-bottom-left-radius: $space-sm;
+    padding: $space-sm;
+    color: $color-white;
+    font-size: $font-size-xs;
+    &.-good {
+      background-color: $color-secondary;
+    }
+    &.-excelent {
+      background-color: $color-important;
+    }
+  }
+
+  &__name {
+    display: block;
+    margin: $space-lg $space-md;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__config {
+    padding: 0 $space-lg;
+    margin: $space-lg 0;
+
+    &-item {
+      margin-bottom: $space-md;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-name,
+    &-value {
+      font-size: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-value {
+      // display: block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: $font-size-s;
+      text-align: center;
+      background-color: #ffffff;
+      width: 65%;
+      height: 25px;
+      line-height: 23px;
+      border: 1px solid $color-grey-dark;
+      border-radius: 100px;
+      padding: 0 $space-lg;
+    }
+    &-name {
+      width: 35%;
+      font-size: $font-size-m;
+    }
+  }
+
+  &__block {
+    text-align: center;
+    padding: $space-lg;
+    &.-darker {
+      background-color: $color-grey;
+    }
+  }
+
+  &__price {
+    margin-left: $space-md;
+    font-weight: bold;
+  }
+
+  &__button {
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 100px;
+    background-color: $color-important;
+    transition: background-color 0.2s ease-in;
+
+    &-text {
+      padding-right: 25px;
+      position: relative;
+      color: $color-white;
+
+      &:after {
+        position: absolute;
+        content: '';
+        background: url('~assets/images/katalog/cart.png') no-repeat;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 22px;
+        height: 20px;
+      }
+    }
+
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 3px;
+  }
+}

@@ -1,0 +1,300 @@
+.basket {
+  &__table {
+    width: 100%;
+    @media(max-width: 991px) {
+      width: 95%;
+      margin: 0 auto;
+    }
+    @media(max-width: 660px) {
+      display: block;
+      overflow-x: scroll;
+    } 
+  }
+  tr,
+  td,
+  th {
+    vertical-align: top;
+    text-align: left;
+  }
+  &__head {
+    background-color: $color-grey;
+    th {
+      padding: 7px;
+    }
+  }
+  &__body {
+    background-color: $color-grey-light;
+    td {
+      border: $color-grey 1px solid;
+      padding: 10px;
+    }  
+  }
+  &__item1 {
+    width: 10%;
+  }
+  &__items {
+    line-height: 20px;
+  }
+  &__count {
+    font-size: 15px;
+  }
+  &__blue {
+    color: $color-blue;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 8px;
+    @media(max-width: 350px) {
+      font-size: 18px;
+    }
+  }
+  &__form {
+    margin-top: 30px;
+    @media(max-width: 1200px) {
+      width: 100%;
+      margin: 15px auto;
+    }
+  }
+  &__checkbox {
+    width: 60%;
+    text-align: right;
+    .checkbox__label {
+    font-size: 13px;
+    }
+    @media(max-width: 1200px) {
+      width: 95%;
+      text-align: center;
+    }
+    @media(max-width: 800px) {
+     text-align: left;
+     margin-left: 10px;
+    }
+  }
+  &__basket {
+    vertical-align: middle !important;
+  }
+  &__delete {
+    text-align: center;
+    cursor: pointer;
+  }
+  &__cost {
+    text-align: right;
+    padding: 10px 0;
+    background-color: $color-grey;
+    margin-top: 5px;
+    border-radius: 5px;
+    @media(max-width: 991px) {
+      width: 95%;
+      margin: 5px auto;
+    }
+  }
+  &__item-check {
+    display: inline-block;
+    padding-right: 10px;
+    font-size: 13px;
+  }
+  &__item-info {
+    display: inline-block;
+    &:first-child {
+      width: 20%;
+      vertical-align: top;
+      @media(max-width: 1200px) {
+        width: 30%;
+      }
+    & h3 {
+      text-align: left;
+      @media(max-width: 1200px) {
+      padding-left: 10px;
+    }
+  } 
+    }
+    &:last-child {
+      width: 40%;
+      @media(max-width: 1200px) {
+        width: 42%;
+      }
+      @media(max-width: 800px) {
+        width: 60%;
+       }
+       @media(max-width: 550px) {
+        width: 90%;
+        margin-left: 10px;
+       } 
+    }
+  }
+  &__input {
+    margin-right: 20px;
+    margin-bottom: 15px;
+    border-width: 1px;
+    border-color: #e8e8e8;
+    border-style: solid;
+    width: 100%;
+    border-radius: 50px;
+    padding: 12px;
+    height: 14px;
+    &:focus {
+      outline: none;
+    }
+    @media(max-width: 550px) {
+      margin-right: 0;
+     }
+  }
+  &__input2 {
+    width: 50%;
+    @media(max-width: 550px) {
+      width: 95%;
+     }
+  }
+  textarea {
+    margin-right: 7px;
+    margin-bottom: 5px;
+    border-width: 1px;
+    border-color: #e8e8e8;
+    border-style: solid;
+    width: 100%;
+    height: 77px;
+    border-radius: 15px;
+    padding: 8px;
+    font-weight: 300;
+    font-family: inherit;
+    &:focus {
+      outline: none;
+    }
+  } 
+  &__select{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    &:after {
+      content: '⏷';
+      pointer-events: none;
+      position: absolute;
+      top: 16px;
+      right: 48%;
+      cursor: pointer;
+      background: $color-white;
+      @media(max-width: 991px) {
+        right: 40%;
+       }
+      @media(max-width: 550px) {
+        right: 15%;
+       }
+    }
+    &:before {
+      content: '⏶';
+      pointer-events: none;
+      position: absolute;
+      top: 9px;
+      z-index: 1;
+      right: 48%;
+      cursor: pointer;
+      @media(max-width: 991px) {
+        right: 40%;
+       }
+      @media(max-width: 550px) {
+        right: 15%;
+       }
+    }  
+  }
+  &__slct {
+    border-radius: 20px;
+    padding: 10px;
+    width: 55%;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    border-color: #e8e8e8;
+    color: $color-text;
+    @media(max-width: 991px) {
+      width: 65%;
+     }
+    @media(max-width: 550px) {
+      width: 90%;
+     }
+  }
+  & h2 {
+    @media(max-width: 1200px) {
+      text-align: left;
+      margin-left: 10px;
+    }
+  }
+  & h3 {
+    vertical-align: top;
+  }
+} 
+
+.tabs {
+  &__delivery {
+  padding: 20px;
+  background-color: $color-grey;
+  }
+  
+  &__way {
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+    &:first-child {
+      @media(max-width: 1200px) {
+        text-align: center;
+    }
+  }
+    &:nth-child(2) {
+      text-align: center;
+    }  
+    &:nth-child(3) {
+      text-align: center;
+    }
+    @media(max-width: 1200px) {
+      text-align: center;
+      width: 30%;
+    }
+    @media(max-width: 991px) {
+      width: 31%;
+    }
+    @media(max-width:750px) {
+      display: block;
+      width: 100%;
+      }
+  }  
+  &__item {
+    padding: 15px;
+    @media(max-width: 991px) {
+    text-align: center;
+    }
+    & h2 {
+      @media(max-width: 750px) {
+        display: none;
+        }
+    }
+  }
+  &__courier {
+    background-color: $color-grey-dark; 
+  }
+  &__pickup {
+    background-color: $color-grey;
+    margin-left: 3px;
+  }
+  &__courier,
+  &__pickup {
+    display: inline-block;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+  }
+  &__link {
+    color: $color-blue;
+    padding-left: 30px;
+    display: block;
+    margin-top: 3px;
+    @media(max-width: 400px) {
+      padding-left: 0;
+    }
+  }
+}
+
+.active {
+  background-color: $color-grey-light;
+  border-radius: 20px;
+  padding: 15px;
+}

@@ -2,18 +2,143 @@
 
 html,
 body {
-  $font-size: 16px;
+  $font-size: 14px;
 
-  font-family: OpenSans;
+  font-family: 'Open Sans', sans-serif;
   font-size: $font-size;
   height: 100%;
   width: 100%;
+  color: $color-text;
+}
 
-  @media screen and (max-width: $media-screen-m) {
-    font-size: $font-size * .8;
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: 1.4;
+  @media(max-width: 1200px) {
+    text-align: center;
   }
+}
+p {
+  margin: 0.5em 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.8em 0 0.4em;
+  font-weight: bold;
+}
+h1 {
+  font-size: $font-size-xl;
+}
+h2,
+h3 {
+  font-size: $font-size-l;
+}
 
-  @media screen and (max-width: $media-screen-s) {
-    font-size: $font-size * .65;
+.table {
+  width: 100%;
+  color: #a9a9a9;
+  font-weight: 300;
+  margin-bottom: 35px;
+  th {
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-weight: 300;
+    text-align: left;
+  }
+  td {
+    border-left-width: 1px;
+    border-left-color: #f1f1f1;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-right-color: #f1f1f1;
+    border-right-style: solid;
+    padding: 10px;
+  }
+  tr {
+    &:nth-child(odd) {
+      background-color: #f8f8f8;
+    }
+    &:last-child {
+      border-bottom-width: 1px;
+      border-bottom-color: #f1f1f1;
+      border-bottom-style: solid;
+    }
+  }
+}
+
+.btn {
+  color: $color-white;
+  background-color: $color-blue;
+  border-radius: 30px;
+  border: none;
+  padding: 0 45px;
+  height: 45px;
+  font-size: 15px;
+  cursor: pointer;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+.list {
+  list-style-image: url('~assets/images/list-icon.png');
+  margin-left: 35px;
+  & > li {
+    margin-bottom: $space-md;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+ol > li {
+  vertical-align: middle;
+}
+ol > li:first-child {
+  counter-reset: index;
+}
+ol > li:before {
+  content: counter(index) ') ';
+  counter-increment: index;
+  width: 30px;
+  height: 19px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  text-align: center;
+  color: #00ceff;
+  font-size: 16px;
+  line-height: 13px;
+}
+
+// стили для контента из WYSIWYG редактора
+.editor {
+  h1 {
+    font-size: $font-size-xl;
+  }
+  li {
+    list-style-image: url('~assets/images/list-icon.png');
+    margin-left: 35px;
+    & > li {
+      margin-bottom: $space-md;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

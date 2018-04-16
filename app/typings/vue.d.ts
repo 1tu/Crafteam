@@ -1,5 +1,4 @@
 // Make sure to import 'vue' before declaring augmented types
-import Vue from 'vue'
 import VueRouter from 'vue-router';
 
 // Specify a file with the types you want to augment
@@ -18,3 +17,8 @@ declare module 'vue/types/vue' {
   }
 }
 
+declare namespace NodeJS {
+  interface Process {
+    client: boolean;
+  }
+}

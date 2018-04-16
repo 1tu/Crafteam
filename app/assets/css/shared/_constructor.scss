@@ -1,0 +1,38 @@
+.constructor {
+  &__field {
+    display: block;
+    margin-bottom: $space-lg;
+  }
+
+  &__key,
+  &__value {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__key {
+    font-size: 14px;
+    width: 30%;
+  }
+
+  &__value {
+    width: 70%;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+
+  &__image {
+    max-width: 200px;
+  }
+
+  &__color {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: $space-md;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}

@@ -3,6 +3,7 @@
 .test/
 .vscode/
 npm-debug.log
+Crafteam.zip
 
 # Distribution folders
 dist/

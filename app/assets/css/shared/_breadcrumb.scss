@@ -1,0 +1,40 @@
+.breadcrumb {
+  font-size: 12px;
+
+  &__container {
+    background-color: #f1f1f1;
+    padding: 5px 0;
+    margin-bottom: $space-lg;
+
+    .anchor {
+      font-size: 12px;
+      float: right;
+      a {
+        margin-left: 10px;
+        color: #a9a9a9;
+        &:hover,
+        :focus {
+          color: #a9a9a9;
+        }
+      }
+    }
+  }
+
+  &__link {
+    color: $color-primary;
+
+    &:hover,
+    :focus {
+      color: $color-primary;
+    }
+  }
+
+  &__text {
+    color: $color-text;
+  }
+
+  &__delimetr {
+    margin: 0 $space-md;
+    color: $color-text;
+  }
+}

@@ -1,32 +1,70 @@
+import axios from 'axios';
 import { Action as vAction, Getter as vGetter, Mutation as vMutation, namespace, State as vState } from 'vuex-class';
 
-import { action, decorator, getter, keymirror, mutation } from './vuexTypes';
 import { State as rootState } from './root.storeState';
+import { action, decorator, getter, keymirror, mutation } from './vuexTypes';
+import { ShopEntity } from '../shared/types/shop.entity';
+import { CityEntity } from '../shared/types/city.entity';
+import { Context } from '../typings/nuxt';
+import { SeoMetaEntity } from '../shared/types/seoMeta.entity';
+import { tText } from '../shared/helpers/tText.helper';
 
 const state = (): rootState => ({
-  name: 'Default App'
+  serverUrl: null,
+  baseApiUrl: null,
+  shop: null,
+  city: null
 });
 const pureState = state();
 
 const getters = getter(pureState, {
-  todayName(state): string {
-    return state.name + ' ' + Date.now();
+  head(state) {
+    return (meta: SeoMetaEntity) => {
+      if (!meta) return {};
+      return {
+        title: tText(meta.title, state.city, meta),
+        meta: [
+          { hid: 'description', name: 'description', content: tText(meta.description, state.city, meta) },
+          { hid: 'keywords', name: 'keywords', content: tText(meta.keywords, state.city, meta) }
+        ]
+      };
+    };
+  },
+  tText(state) {
+    return (text: string, meta: SeoMetaEntity) => tText(text, state.city, meta);
   }
 });
 
 const mutations = mutation(pureState, {
-  setAppName(state, name: string): void {
-    state.name = name;
+  baseApiUrl(state, baseApiUrl: string) {
+    state.baseApiUrl = baseApiUrl;
+  },
+  serverUrl(state, serverUrl: string) {
+    state.serverUrl = serverUrl;
+  },
+  shop(state, shop: ShopEntity) {
+    state.shop = shop;
+  },
+  city(state, city: CityEntity) {
+    state.city = city;
   }
 });
 
 const actions = action(pureState, {
-  nuxtServerInit({ commit }): void {
-    // Fired when app starts
-  },
-
-  changeName({ commit }, name: string): void {
-    commit(types.mutation.setAppName, name);
+  async nuxtServerInit({ commit, dispatch }, ctx: Context) {
+    commit(types.mutation.baseApiUrl, ctx.env.baseApiUrl);
+    commit(types.mutation.serverUrl, ctx.env.serverBaseUrl);
+    const city = (ctx.req ? (ctx.req.headers as any).host : window.location.host.split(':')[0]).split('.')[0];
+    const res = await Promise.all([
+      axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: ctx.env.shopHost } }),
+      axios.get(ctx.env.baseApiUrl + 'city/byNameTranslit', { params: { nameTranslit: city } })
+    ]);
+    if (!res[0].data.cityList.find(c => c.nameTranslit === city)) {
+      ctx.error({ statusCode: 404, message: 'Нет такого города' });
+    }
+    commit(types.mutation.shop, res[0].data);
+    commit(types.mutation.city, res[1].data);
+    return dispatch('Category/init');
   }
 });
 

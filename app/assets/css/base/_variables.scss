@@ -1,27 +1,61 @@
+$space: 2px;
+
+$space-xs: $space;
+$space-sm: $space * 2;
+$space-md: $space * 4;
+$space-lg: $space * 8;
+$space-xl: $space * 16;
+
+$space-size: (
+  0: 0,
+  1: $space-xs,
+  2: $space-sm,
+  3: $space-md,
+  4: $space-lg,
+  5: $space-xl
+);
+
+$space-direction: (
+  t: 'top',
+  b: 'bottom',
+  l: 'left',
+  r: 'right'
+);
+
 // Colors
-$color-brand: #1ABC9C;
-$color-brand-dark: darken($color-brand, 10%);
-$color-brand-darker: darken($color-brand, 20%);
-$color-brand-bright: lighten($color-brand, 10%);
-$color-brand-brighter: lighten($color-brand, 20%);
-$color-secondary: #5969DC;
+$color-text: #555;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-grey: #dddddd;
+$color-grey-light: lighten($color-grey, 10%);
+$color-grey-dark: darken($color-grey, 10%);
+
+$color-blue: #00bfed;
+$color-blue-light: lighten($color-blue, 10%);
+$color-blue-dark: darken($color-blue, 10%);
+
+$color-primary: #00bfed;
+$color-primary-dark: darken($color-primary, 10%);
+$color-primary-darker: darken($color-primary, 20%);
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-lighter: lighten($color-primary, 20%);
+
+$color-secondary: #a1cd03;
 $color-secondary-dark: darken($color-secondary, 10%);
 $color-secondary-darker: darken($color-secondary, 20%);
-$color-secondary-bright: lighten($color-secondary, 10%);
-$color-secondary-brighter: lighten($color-secondary, 20%);
-$color-background-dark: #333333;
-$color-background-darker: #000000;
-$color-background-bright: #2F4256;
-$color-background-brighter: #35495F;
-$color-foreground-dark: #333333;
-$color-foreground-darker: #000000;
-$color-foreground-bright: #969DA6;
-$color-foreground-brighter: #FFFFFF;
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-lighter: lighten($color-secondary, 20%);
+
+$color-important: #eb5f59;
+$color-important-dark: darken(#eb5f59, 10%);
+$color-important-light: lighten(#eb5f59, 10%);
 
 // Animations
-$animation-speed-default: .35s;
-$animation-speed-slow: .5s;
-$animation-speed-fast: .15s;
+$animation-speed-default: 0.35s;
+$animation-speed-slow: 0.5s;
+$animation-speed-fast: 0.15s;
 
 // Fonts
 $font-weight-light: 200;
@@ -30,11 +64,11 @@ $font-weight-normal: 400;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-black: 800;
-$font-size-xs: .5rem;    // 8px
-$font-size-s: .85rem;    // 13.6px
-$font-size-m: 1rem;      // [16px]
-$font-size-l: 1.25rem;   // 20px
-$font-size-xl: 1.5rem;   // 24px
+$font-size-xs: 0.625rem;
+$font-size-s: 0.8rem;
+$font-size-m: 1rem;
+$font-size-l: 1.4rem;
+$font-size-xl: 1.7rem;
 
 // Medias
 $media-screen-xxs: 22.5em; // 360px

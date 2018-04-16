@@ -33,7 +33,7 @@ const types = {
 export const CartStore = { namespaced: true, name, state, getters, mutations, actions };
 
 export const CartTypes = types;
-export const CartState = decorator(namespace(null, vState), types.state);
-export const CartGetter = decorator(namespace(null, vGetter), types.getter);
-export const CartMutation = decorator(namespace(null, vMutation), types.mutation);
-export const CartAction = decorator(namespace(null, vAction), types.action);
+export const CartState = decorator(namespace(name, vState), types.state);
+export const CartGetter = decorator(namespace(name, vGetter), types.getter);
+export const CartMutation = decorator(namespace(name, vMutation), types.mutation);
+export const CartAction = decorator(namespace(name, vAction), types.action);

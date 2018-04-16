@@ -1,0 +1,224 @@
+// .header {
+//   color: $color-text;
+//   font-size: 14px;
+//   font-weight: lighter;
+//   @media(max-width: 630px) {
+//     font-size: 12px;
+//     font-weight: 700; 
+//   }
+//   &__container {
+//     background-color: $color-grey-light;
+//     padding: $space-md;
+//   }
+//   &__list {
+//     text-align: center;
+//   }
+//   &__item {
+//     display: inline-block;
+//     width: 16%;
+//     @media(max-width: 991px) {
+//       vertical-align: middle;
+//       width: 30%;
+//     }
+//     @media(max-width: 540px) {
+//       display: block;
+//       margin: 0 auto;
+//       font-size: 14px;
+//       font-weight: 300;
+//       width: 100%
+
+//     }
+//     & a {
+//     color: $color-text
+//     }
+//   }
+// }
+.social {
+  padding: $space-md;
+  @media(max-width: 991px) {
+   text-align: center; 
+  }
+  &__logo,
+  &__block {
+    display: inline-block;
+  }
+  &__logo {
+    vertical-align: middle;
+    @media(max-width: 1200px) {
+      width: 10%; 
+    }
+    @media(max-width: 991px) {
+      width: 20%; 
+    }
+  }
+  &__all {
+    display: inline-block;
+    width: 23%;
+    text-align: left;
+    vertical-align: middle;
+    @media(max-width: 991px) {
+      width: 30%;
+      text-align: center;
+      padding-top: 15px;
+    }
+    @media(max-width: 740px) {
+      width: 40%;
+    }
+    @media(max-width: 520px) {
+      width: 100%; 
+    }
+  }
+  &__block {
+    width: 85%;
+    text-align: right;
+    line-height: 20px;
+    font-size: 14px;
+    color: $color-text;
+    @media(max-width: 1200px) {
+      width: 90%; 
+    }
+    @media(max-width: 991px) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__mess {
+    line-height: 25px
+  }
+  &__phone {
+    vertical-align: top;
+    @media(max-width: 1200px) {
+      text-align: center;
+    }
+    & a {
+      color: $color-text;
+      &:hover {
+        text-decoration: none;
+      }
+    }  
+  }  
+  &__par {
+    color: $color-grey-dark;
+    font-size: 13px;
+  }  
+  
+  &__icon,
+  & span {
+    display: inline-block;
+  }
+  &__mail {
+    text-align: right;
+    @media(max-width: 991px) {
+      text-align: center;
+      width: 40%;
+    }
+    @media(max-width: 520px) {
+      width: 70%;
+    }
+  }
+  &__e-mail {
+    padding-right: 5px;
+  }
+  &__icon {
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  &__iconTG {
+    background-image: url("~/assets/images/social/telegram.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/telegram-c.png");
+    }
+  }  
+  &__iconVB {
+    background-image: url("~/assets/images/social/viber.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/viber-c.png");
+      }  
+    }
+  &__iconWA {
+    background-image: url("~/assets/images/social/whatsapp.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/whatsapp-c.png");
+      }  
+    }
+  &__iconVK {
+    background-image: url("~/assets/images/social/vk.png");
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/vk-c.png");
+      }  
+    }
+  &__iconIG {
+    background-image: url("~/assets/images/social/instagram.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 20px;
+    &:hover {
+      background-image: url("~/assets/images/social/instagram-c.png");
+      }  
+    }
+  &__callback {
+    color: $color-blue;
+    cursor: pointer;
+  }           
+}
+.nav {
+  &__container {
+    background-color: $color-blue;
+  }
+  &__item {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    position: relative;
+    @media(max-width: 740px) {
+      display: block;
+      width: 100%;
+    }
+    &:hover {  
+      background-color: $color-blue-light;
+    }
+    &:hover .nav__child {
+      opacity: 1;
+      left: 0;
+    }
+    & a {
+      color: $color-white;
+      font-size: 16px;
+      text-decoration: none;
+      width: 100%;
+      display: inline-block;
+      padding: 10px 0;
+    }
+  }
+  &__child-item {
+    position: relative;
+    &:hover {  
+      background-color: $color-blue-light;
+    }
+  }
+  &__child {
+    position: absolute;
+    min-width: 100%;
+    left: -99999999em;
+    top: 100%;
+    transition: .5s opacity;
+    opacity: 0;
+    z-index: 1;
+    background-color: $color-blue;
+  }
+  &__bottom {
+    padding-left: 5px;
+  }
+}  
