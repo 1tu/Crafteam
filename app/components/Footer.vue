@@ -50,7 +50,7 @@
         .footer__right
           .footer__map#map 
             img.footer__map-img(src="~/assets/images/map.jpg", alt="map")
-           
+   
           ul.footer__right-1
             li
               a(href="tel:84953000000", title="84953000000") 8 (495) 300-00-00

@@ -80,6 +80,16 @@ h3 {
   }
 }
 
+.btn {
+  color: $color-white;
+  background-color: $color-blue;
+  border-radius: 30px;
+  border: none;
+  padding: 0 45px;
+  height: 45px;
+  font-size: 15px;
+  cursor: pointer;
+}
 ul,
 ol {
   list-style: none;

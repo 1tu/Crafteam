@@ -22,8 +22,9 @@
   &__right {
     vertical-align: top;
     width: 49%;
-    text-align: center;
+    text-align: right;
     @media(max-width: 991px) {
+      text-align: center;
       width: 100%;
       padding-top: 20px;
     }
@@ -44,6 +45,10 @@
     width: 33%;
     vertical-align: top;
     font-size: 16px;
+    text-align: left;
+    @media(max-width: 991px) {
+      text-align: center;
+    }
     @media(max-width: 520px) {
       display: block;
       width: 100%
@@ -97,11 +102,13 @@
     }
   }
   &__map {
-    text-align: center;
+    text-align: right;
+    @media(max-width: 991px) {
+      text-align: center;
+    }
   }
   &__map-img {
     height: 227px;
-    text-align: center;
     @media(max-width: 650px) {
       width: 90%;
     }

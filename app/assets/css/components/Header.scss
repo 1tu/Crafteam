@@ -70,7 +70,7 @@
   }
   &__block {
     width: 85%;
-    text-align: center;
+    text-align: right;
     line-height: 20px;
     font-size: 14px;
     color: $color-text;
@@ -78,7 +78,8 @@
       width: 90%; 
     }
     @media(max-width: 991px) {
-      width: 100%; 
+      width: 100%;
+      text-align: center;
     }
   }
   &__mess {
