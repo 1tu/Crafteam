@@ -5,16 +5,7 @@
     .container
       h1.m-0 Рекламное агенство в {{ $store.state.city.namePrepositional }}
       p Компания ХХХ в {{ $store.state.city.namePrepositional }}
-  section.breadcrumb
-    .container
-      .breadcrumb-link
-        nuxt-link(to='/') Главная
-        span >
-      .anchor
-        a(href='#calc') Рассчитать стоимость
-        a(href='#cost') Цены
-        a(href='#samples') Образцы
-        a(href='#video') Видео
+  PageHeader
   .form
     .container
       .form__callback
@@ -83,13 +74,13 @@
             label.checkbox.-large.mt-2
               input.checkbox__input(type="checkbox")
               .checkbox__label Даю согласие на обработку персональных данных
-        .callback-cost__right 
-          textarea.callback-cost__textarea(type="text" name="text" placeholder="Опишите задачу (по желанию)" required) 
+        .callback-cost__right
+          textarea.callback-cost__textarea(type="text" name="text" placeholder="Опишите задачу (по желанию)" required)
           .callback-cost__none2
             label.checkbox.-large.mt-2
               input.checkbox__input(type="checkbox")
               .checkbox__label Даю согласие на обработку персональных данных
-          button.btn Оставить заявку  
+          button.btn Оставить заявку
   .container
     section.panel
       h2.mb-4 Внимания АКЦИЯ!
@@ -118,11 +109,10 @@
 <script lang='ts'>
 import Component from 'nuxt-class-component';
 import Vue from 'vue';
+import PageHeader from '../components/PageHeader.vue';
 
-@Component()
-export default class extends Vue {
-  public created(): void {}
-}
+@Component({ components: { PageHeader } })
+export default class extends Vue {}
 </script>
 
 <style lang="scss" scoped>

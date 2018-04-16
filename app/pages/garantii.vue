@@ -1,4 +1,6 @@
 <template lang="pug">
+div
+  PageHeader(:breadcrumbs='breadcrumbs')
   section.container
     h1 Наши гарантии
     p В случае повреждения груза при доставке <в город>, свяжитесь с нами, мы предпримем действия по устранению это неприятной ситуации.
@@ -10,9 +12,14 @@
 <script lang='ts'>
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
+import PageHeader from '../components/PageHeader.vue';
 
-@Component()
+@Component({ components: { PageHeader } })
 export default class extends Vue {
-  public created(): void {}
+  async asyncData() {
+    const breadcrumbs = [{ name: 'Гарантии', link: null }];
+
+    return { breadcrumbs };
+  }
 }
 </script>

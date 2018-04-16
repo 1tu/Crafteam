@@ -1,6 +1,6 @@
 <template lang="pug">
   .wr
-    PageHeader
+    PageHeader(:breadcrumbs='breadcrumbs')
     section.product
       .container
         .mb-5
@@ -15,35 +15,11 @@
             p.mb-4 Артикул:
               span.ml-3 Таб-1234
             .tabs
-              .tab(@click='activeTabIndex = 0' :class="{active : activeTabIndex === 0}") Описание
+              .tab(@click='activeTabIndex = 0' :class="{active : activeTabIndex === 0}") Выбор дизайна
               //- .tab(@click='activeTabIndex = 1' :class="{active : activeTabIndex === 1}") Выбор формы
             transition(name='fade')
               .tab-content(v-show='activeTabIndex === 0')
-                .prop-type
-                  .mb-4
-                    h2 Размер таблички:
-                    p Размер:
-                      span 45см х 75см
-                    p Размер:
-                      span 45см х 75см
-                    p Размер:
-                      span 45см х 75см
-                    p Размер:
-                      span 45см х 75см
-                  label.checkbox.-circle
-                    input.checkbox__input(type="checkbox")
-                    .checkbox__label Сделать стенд напольным
-                      span.ml-2 (+1853)
-
-                  label.checkbox
-                    input.checkbox__input(type="checkbox")
-                    .checkbox__label Рамка
-                      span.ml-2 (+13)
-
-                  p Цена:
-                    span 1234 руб.
-                  .buttons
-                    button.btn-buy Добавить в корзину
+                Constructor(:schema='$store.state.Product.item.manufacture.schema' :config='$store.state.Product.item.config')
         .content
           .tabs
             .tab(@click='activeTabContentIndex = 0' :class="{active : activeTabContentIndex === 0}") Описание
@@ -131,25 +107,23 @@
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
 import PageHeader from '../../components/PageHeader.vue';
+import Constructor from '../../components/Constructor.vue';
 
 import { Context } from '../../typings/nuxt';
-import { breadcrumbsBase } from '../../shared/data/router.data';
-import { makePath } from '../../shared/helpers/location.helper';
+import { makeSplitPath } from '../../shared/helpers/location.helper';
 
-@Component({
-  components: { PageHeader }
-})
+@Component({ components: { PageHeader, Constructor } })
 export default class extends Vue {
   public activeTabIndex = 0;
   public activeTabContentIndex = 0;
   public delivery = [{ name: 'Ставрополь ул. Ленина' }, { name: 'Ставрополь ул. Мира' }];
 
   async asyncData(ctx: Context) {
-    const path = makePath(ctx.route.fullPath);
+    const path = makeSplitPath(ctx.route.fullPath);
     const productName = path[path.length - 1];
-    const breadcrumbs = breadcrumbsBase.slice().concat([{ name: 'Товары', link: null } /*{ name: baseCategoryName, link: null } */]);
 
     await ctx.store.dispatch('Product/getItemByNameTranslit', productName);
+    const breadcrumbs = [{ name: 'Товары', link: null }, { name: ctx.store.state.Product.item.name, link: null }];
 
     return { breadcrumbs };
   }

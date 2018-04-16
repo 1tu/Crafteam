@@ -15,6 +15,6 @@ export function filtersFromQuery(query: FilterQuery): CatalogFilters {
       : query.categoryIdList ? [parseInt(query.categoryIdList)] : [],
     propertyKeyValueList: query.propertyKeyValueList ? JSON.parse(query.propertyKeyValueList) : [],
     page: parseInt(query.page) || 1,
-    perPage: parseInt(query.perPage) || 10
+    perPage: parseInt(query.perPage) || 12
   };
 }

@@ -1,13 +1,17 @@
 <template lang="pug">
-  .breadcrumb
-    .container
-      .anchor
-        a(href="/korzina", title="Cart") Корзина
-      .breadcrumb-link
-        template(v-for='(item, index) in breadcrumbs')
-          nuxt-link(v-if='item.link' :to='item.link') {{ item.name }}
-          span.breadcrumbs__text(v-if='!item.link') {{ item.name }}
-          span(v-if='index < breadcrumbs.length - 1') >
+section.breadcrumb__container
+  .container
+    .anchor
+      a(href="/korzina", title="Cart") Корзина
+    .breadcrumb
+      nuxt-link.breadcrumb__link(v-if='breadcrumbs.length' to='/') Главная
+      span.breadcrumb__text(v-else) Главная
+      span.breadcrumb__delimetr(v-if='breadcrumbs.length') >
+
+      template(v-for='(item, index) in breadcrumbs')
+        nuxt-link.breadcrumb__link(v-if='item.link' :to='item.link') {{ item.name }}
+        span.breadcrumb__text(v-else) {{ item.name }}
+        span.breadcrumb__delimetr(v-if='index < breadcrumbs.length - 1') >
 </template>
 
 <script lang="ts">
@@ -21,7 +25,3 @@ export default class extends Vue {
   public breadcrumbs: any[];
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

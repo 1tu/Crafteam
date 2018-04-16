@@ -1,10 +1,12 @@
 .checkbox {
   display: block;
   position: relative;
-  cursor: pointer; 
+  cursor: pointer;
+
   &__input {
     display: none;
   }
+
   &__label {
     font-size: $font-size-m;
     display: inline-block;
@@ -17,6 +19,7 @@
       content: '';
       top: 50%;
     }
+
     &:before {
       width: 14px;
       height: 14px;
@@ -24,13 +27,16 @@
       transform: translateY(-50%);
       border: 1px solid $color-grey-dark;
     }
-    @media(max-width: 745px) {
+
+    @media (max-width: 745px) {
       padding-left: 25px;
     }
   }
+
   &__input:checked + .checkbox__label:before {
     border-color: $color-secondary;
   }
+
   &__input:checked + .checkbox__label:after {
     position: absolute;
     content: '';
@@ -44,7 +50,8 @@
     left: 3px;
     transform: translateY(-50%) rotate(-45deg);
   }
-  &.-circle {
+
+  &.-radio {
     .checkbox__label:before {
       border-radius: 50%;
     }
@@ -52,6 +59,7 @@
       height: 5px;
     }
   }
+
   &.-large {
     .checkbox__label:before {
       width: 17px;

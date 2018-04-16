@@ -1,4 +1,6 @@
 <template lang="pug">
+div
+  PageHeader(:breadcrumbs='breadcrumbs')
   section.contacts
     .container
       h1 Контактная информация 
@@ -28,7 +30,6 @@
       p Время работы
       p Пн-сб: 07:00-21:00
       p Выходной - Вс.
-    
 
 
 </template>
@@ -36,9 +37,14 @@
 <script lang='ts'>
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
+import PageHeader from '../components/PageHeader.vue';
 
-@Component()
+@Component({ components: { PageHeader } })
 export default class extends Vue {
-  public created(): void {}
+  async asyncData() {
+    const breadcrumbs = [{ name: 'Контакты', link: null }];
+
+    return { breadcrumbs };
+  }
 }
 </script>

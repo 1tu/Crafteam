@@ -1,33 +1,40 @@
 .breadcrumb {
-  background-color: #f1f1f1;
-  padding: 5px 15px 20px;
-  margin-bottom: 30px;
-  &-link {
-    font-size: 12px;
-    float: left;
-    a {
-      color: #00c6e6;
-      &:hover,
-      :focus {
-        color: #00c6e6;
+  font-size: 12px;
+
+  &__container {
+    background-color: #f1f1f1;
+    padding: 5px 0;
+    margin-bottom: $space-lg;
+
+    .anchor {
+      font-size: 12px;
+      float: right;
+      a {
+        margin-left: 10px;
+        color: #a9a9a9;
+        &:hover,
+        :focus {
+          color: #a9a9a9;
+        }
       }
-    }
-    span {
-      color: #a9a9a9;
-      margin-right: 10px;
-      margin-left: 10px;
     }
   }
-  .anchor {
-    font-size: 12px;
-    float: right;
-    a {
-      margin-left: 10px;
-      color: #a9a9a9;
-      &:hover,
-      :focus {
-        color: #a9a9a9;
-      }
+
+  &__link {
+    color: $color-primary;
+
+    &:hover,
+    :focus {
+      color: $color-primary;
     }
+  }
+
+  &__text {
+    color: $color-text;
+  }
+
+  &__delimetr {
+    margin: 0 $space-md;
+    color: $color-text;
   }
 }

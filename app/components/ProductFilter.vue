@@ -23,7 +23,7 @@ import { CategoryStoreState } from '../store/modules/category/category.storeStat
 import { ProductAction } from '../store/modules/product';
 import { FilteredPageFilters } from '../shared/types/filteredPage.entity';
 import qs from 'query-string';
-import { makePath } from '../shared/helpers/location.helper';
+import { makeSplitPath } from '../shared/helpers/location.helper';
 
 interface FilterItem {
   name: string;
@@ -89,7 +89,7 @@ export default class extends Vue {
       null,
       (this._isFilteredPage()
         ? '/' +
-          makePath(window.location.pathname)
+          makeSplitPath(window.location.pathname)
             .slice(0, 2)
             .join('/')
         : window.location.pathname) + query
@@ -98,7 +98,7 @@ export default class extends Vue {
   }
 
   private _isFilteredPage() {
-    return makePath(window.location.pathname).length === 3;
+    return makeSplitPath(window.location.pathname).length === 3;
   }
 }
 </script>

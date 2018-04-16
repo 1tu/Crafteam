@@ -9,8 +9,9 @@
       .settings__item
         span.settings__name Показывать по
         select.settings__select(v-model='filters.perPage')
-          option(value='10') 10
-          option(value='25') 25
+          option(value='12') 12
+          option(value='24') 24
+          option(value='36') 36
 
       .settings__item
         span.settings__name Вид каталога
@@ -22,7 +23,6 @@
       //-     img(src='~assets/images/katalog/compare-c.png')
       //-     .settings__name Сравнение
       //-       span='(' + '2' + ')'
-
 
     p(v-if='$store.state.Product.isListLoading') Загрузка...
     Pagination(:max='$store.getters["Product/pageCount"](filters.perPage)' :current='filters.page' :url='url')
@@ -43,6 +43,7 @@ import Pagination from './Pagination.vue';
 
 import { Prop, Watch } from 'vue-property-decorator';
 import { CatalogFilters } from '../shared/types/category.entity';
+import { makeUrl } from '../shared/helpers/location.helper';
 
 @Component({ components: { ProductCard, Pagination } })
 export default class extends Vue {
@@ -56,13 +57,19 @@ export default class extends Vue {
   }
 
   @Watch('$route.query')
-  private _onChangeRoute() {
-    this.filters.page = parseInt(this.$route.query.page);
+  private _onChangeQuery() {
+    this.filters.page = parseInt(this.$route.query.page) || 1;
+    this.filters.perPage = parseInt(this.$route.query.perPage) || this.filters.perPage;
     this.url = this._getUrl();
   }
 
+  @Watch('filters.perPage')
+  private _onChangePerPage() {
+    this.$router.push(makeUrl(this.$route, { replaceQuery: { perPage: this.filters.perPage, page: 1 } }));
+  }
+
   private _getUrl() {
-    return this.$route.path + '?' + qs.stringify({ ...this.$route.query, page: undefined });
+    return makeUrl(this.$route, { replaceQuery: { page: undefined } });
   }
 }
 </script>

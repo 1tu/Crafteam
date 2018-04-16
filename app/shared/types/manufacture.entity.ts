@@ -11,7 +11,7 @@ export class ManufactureEntity extends AEntityTimestamp {
 export class ManufactureSchemaItem {
   name: string;
   key: string;
-  type: number;
+  type: ManufactureSchemaTypes;
   isRequired: boolean;
   optionList: ManufactureSchemaOption[];
 }
@@ -29,3 +29,11 @@ export const ManufactureSchemaTypesMap = [
   { id: 2, name: 'Выбор отображения' },
   { id: 4, name: 'Текст' }
 ];
+
+export enum ManufactureSchemaTypes {
+  SELECT = 0,
+  SELECT_COLOR = 1,
+  SELECT_SIZE = 3,
+  SELECT_IMAGE = 2,
+  TEXT = 4,
+}

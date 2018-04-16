@@ -2,15 +2,15 @@ const tText = require('./tText.js');
 
 module.exports = [
   { path: '/', name: () => 'Главная' },
-  { path: '/nashi-klienty', name: () => 'Наши клиенты' },
+  // { path: '/nashi-klienty', name: () => 'Наши клиенты' },
   { path: '/o-kompanii', name: () => 'О компании' },
   { path: '/oplata', name: () => 'Оплата' },
   { path: '/dostavka', name: () => 'Доставка' },
-  { path: '/punkty-samovyvoza', name: () => 'Пункты самовывоза' },
-  { path: '/avtorizatsiya', name: () => 'Авторизация' },
-  { path: '/uslugi', name: () => 'Услуги' },
-  { path: '/portfolio', name: () => 'Портфолио' },
-  { path: '/otzyvy-klientov', name: () => 'Отзывы клиентов' },
+  // { path: '/punkty-samovyvoza', name: () => 'Пункты самовывоза' },
+  // { path: '/avtorizatsiya', name: () => 'Авторизация' },
+  // { path: '/uslugi', name: () => 'Услуги' },
+  // { path: '/portfolio', name: () => 'Портфолио' },
+  // { path: '/otzyvy-klientov', name: () => 'Отзывы клиентов' },
   { path: '/kontakty', name: () => 'Контакты' },
   {
     path: '/katalog',

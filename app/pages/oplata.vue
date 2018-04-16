@@ -1,4 +1,6 @@
- <template lang="pug">
+<template lang="pug">
+div
+  PageHeader(:breadcrumbs='breadcrumbs')
   section.container
     h1 Способы оплаты
     p При оформлении заказа в интернет магазине Krafteam.com <в Город>, возможны следующие способы оплаты.
@@ -16,9 +18,14 @@
 <script lang='ts'>
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
+import PageHeader from '../components/PageHeader.vue';
 
-@Component()
+@Component({ components: { PageHeader } })
 export default class extends Vue {
-  public created(): void {}
+  async asyncData() {
+    const breadcrumbs = [{ name: 'Оплата', link: null }];
+
+    return { breadcrumbs };
+  }
 }
 </script>

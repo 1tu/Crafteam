@@ -1,5 +1,5 @@
 <template lang="pug">
-  .pagination
+  .pagination(v-if='pageList.length')
     nuxt-link.pagination__item(v-if='current !== 1' :to='url + "&page=" + (current - 1) ') <
     nuxt-link.pagination__item(v-if='first > 1' :to='url + "&page=1"') 1
     span.pagination__item(v-if='first > 2') ...

@@ -6,7 +6,6 @@ const _ = require('./tasks/config/helpers');
 
 let rules = require('require.all')('./tasks/rules');
 let environment = process.env.NODE_ENV;
-process.env.NODE_ENV = JSON.stringify(environment);
 require('dotenv').config({ path: './config/' + environment + '.env' });
 
 rules((name, rule) => rule(environment, environments));
