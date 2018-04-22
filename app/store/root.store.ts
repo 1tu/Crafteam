@@ -8,6 +8,7 @@ import { CityEntity } from '../shared/types/city.entity';
 import { Context } from '../typings/nuxt';
 import { SeoMetaEntity } from '../shared/types/seoMeta.entity';
 import { tText } from '../shared/helpers/tText.helper';
+import { cityFromHost } from '../shared/helpers/cityFromHost.helper';
 
 const state = (): rootState => ({
   serverUrl: null,
@@ -54,9 +55,10 @@ const actions = action(pureState, {
   async nuxtServerInit({ commit, dispatch }, ctx: Context) {
     commit(types.mutation.baseApiUrl, ctx.env.baseApiUrl);
     commit(types.mutation.serverUrl, ctx.env.serverBaseUrl);
-    const city = (ctx.req ? (ctx.req.headers as any).host : window.location.host.split(':')[0]).split('.')[0];
+    const host = ctx.req ? (ctx.req.headers as any).host : window.location.host;
+    const city = ctx.isDev ? host.split('.')[0] : cityFromHost(host);
     const res = await Promise.all([
-      axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: ctx.env.shopHost } }),
+      axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: 'krafteam.com' } }),
       axios.get(ctx.env.baseApiUrl + 'city/byNameTranslit', { params: { nameTranslit: city } })
     ]);
     if (!res[0].data.cityList.find(c => c.nameTranslit === city)) {
