@@ -58,10 +58,9 @@ const actions = action(pureState, {
     const host = ctx.req ? (ctx.req.headers as any).host : window.location.host;
     const city = ctx.isDev ? host.split('.')[0] : cityFromHost(host);
     const res = await Promise.all([
-      axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: 'krafteam.com' } }),
+      axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: 'craft.ru' } }),
       axios.get(ctx.env.baseApiUrl + 'city/byNameTranslit', { params: { nameTranslit: city } })
     ]);
-    console.log('!!!!!!!!!!!!!! LOG: ', host, city, res[0].data);
     if (!res[0].data.cityList.find(c => c.nameTranslit === city)) {
       ctx.error({ statusCode: 404, message: 'Нет такого города' });
     }
