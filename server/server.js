@@ -12,9 +12,11 @@ const nuxt = new Nuxt(config);
 
 const sHost = config.env.shopHost.split('.');
 
+console.log('http://' + sHost[0] + '[^.]*' + `\.${sHost[1]}`);
+
 app.use(
   cors({
-    origin: [new RegExp(config.env.host), new RegExp(sHost[0] + '[^.]*' + `\.${sHost[1]}`)],
+    origin: [new RegExp(config.env.host), new RegExp('http:\/\/' + sHost[0] + '[^.]*' + `\.${sHost[1]}`)],
     methods: 'GET,POST',
     preflightContinue: false,
     optionsSuccessStatus: 204
