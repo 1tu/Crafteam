@@ -10,16 +10,17 @@ const api = require('./api');
 const config = require('../nuxt.config.js');
 const nuxt = new Nuxt(config);
 
+const sHost = config.env.shopHost.split('.');
+
 app.use(
   cors({
-    origin: new RegExp(config.env.host),
+    origin: [new RegExp(config.env.host), new RegExp(sHost[0] + '[^.]*' + `\.${sHost[1]}`)],
     methods: 'GET,POST',
     preflightContinue: false,
     optionsSuccessStatus: 204
   })
 );
 app.use('/api', api);
-// Give nuxt middleware to express
 app.use(nuxt.render);
 
 // Start build process in dev mode
