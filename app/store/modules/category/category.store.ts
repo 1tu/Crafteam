@@ -52,26 +52,26 @@ const mutations = mutation(pureState, {
 });
 
 const actions = action(pureState, {
-  async init({ commit, rootState }) {
-    const res = await axios.get(rootState.baseApiUrl + 'category/listBase');
+  async init({ commit, rootGetters }) {
+    const res = await axios.get(rootGetters.baseApiUrl + 'category/listBase');
     commit(types.mutation.listBase, res.data);
     return res.data;
   },
-  async getListByBase({ commit, dispatch, rootState }, categoryId: number) {
+  async getListByBase({ commit, dispatch, rootGetters }, categoryId: number) {
     commit(types.mutation.currentBaseId, categoryId);
-    const res = await axios.get(rootState.baseApiUrl + 'category/listByBaseId', { params: { categoryId } });
+    const res = await axios.get(rootGetters.baseApiUrl + 'category/listByBaseId', { params: { categoryId } });
     commit(types.mutation.list, res.data);
     await dispatch(types.action.getPropList);
   },
-  async getPropList({ commit, state, rootState }) {
-    const res = await axios.get(rootState.baseApiUrl + 'property/listCategoryIds', {
+  async getPropList({ commit, state, rootGetters }) {
+    const res = await axios.get(rootGetters.baseApiUrl + 'property/listCategoryIds', {
       params: { categoryIds: state.list.map(c => c.id).concat(state.currentBaseId) }
     });
     commit(types.mutation.propList, res.data);
     return res.data;
   },
-  async getItemByName({ commit, rootState }, nameTranslit: string) {
-    const res = await axios.get(rootState.baseApiUrl + 'category/byNameTranslit', { params: { nameTranslit } });
+  async getItemByName({ commit, rootGetters }, nameTranslit: string) {
+    const res = await axios.get(rootGetters.baseApiUrl + 'category/byNameTranslit', { params: { nameTranslit } });
     commit(types.mutation.item, res.data);
     return res.data;
   }

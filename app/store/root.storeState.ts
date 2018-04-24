@@ -6,8 +6,9 @@ import { FilteredPageStoreState } from './modules/filteredPage/filteredPage.stor
 import { ProductStoreState } from './modules/product/product.storeState';
 
 export interface State {
-  serverUrl: string;
-  baseApiUrl: string;
+  crmUrl: string;
+  baseUrl: string;
+  clientUrl: string;
   city: CityEntity;
   shop: ShopEntity;
 }

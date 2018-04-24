@@ -5,7 +5,7 @@
     .card__tag.-excelent Лидер продаж
     .card__slider
       .card__slider-item(v-if='data.config'
-        :style="{'background-image': 'url('+ $store.state.serverUrl + getConfigValueByKey('form') +')'}")
+        :style="{'background-image': 'url('+ $store.state.crmUrl + getConfigValueByKey('form') +')'}")
 
     nuxt-link.card__name(:to='"/tovar/" + (data.config? "+" : "") + data.nameTranslit') {{ data.name }}
     ul.card__config

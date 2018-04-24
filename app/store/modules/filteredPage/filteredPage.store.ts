@@ -31,12 +31,12 @@ const mutations = mutation(pureState, {
 });
 
 const actions = action(pureState, {
-  async getItemByUrl({ commit, rootState }, url: string) {
-    const res = await axios.get(rootState.baseApiUrl + 'filteredPage/byUrl', { params: { url } });
+  async getItemByUrl({ commit, rootGetters }, url: string) {
+    const res = await axios.get(rootGetters.baseApiUrl + 'filteredPage/byUrl', { params: { url } });
     commit(types.mutation.item, res.data);
   },
-  async getListByCategoryId({ commit, rootState }, categoryId: number) {
-    const res = await axios.get(rootState.baseApiUrl + 'filteredPage/listByCategoryId', { params: { categoryId } });
+  async getListByCategoryId({ commit, rootGetters }, categoryId: number) {
+    const res = await axios.get(rootGetters.baseApiUrl + 'filteredPage/listByCategoryId', { params: { categoryId } });
     commit(types.mutation.list, res.data);
   }
 });

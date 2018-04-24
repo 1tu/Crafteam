@@ -6,7 +6,7 @@ const router = Router();
 
 const token = 'b875aba36dc5d56bb32354cd864b1ddcdf52b3fa3eb135cb4a87ca4207d740770f73302e58155f97c441d95a070442a323ab398639ea276358f83602e55d8229';
 // const token = 'testapi';
-const serverApiUrl = config.env.serverBaseUrl + '/api';
+const serverApiUrl = config.env.crmUrl + '/api';
 
 const routeList = [
   '/shop/byHost',

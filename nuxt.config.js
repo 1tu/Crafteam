@@ -15,12 +15,13 @@ let plugins = [];
 
 const port = process.env.PORT;
 const host = process.env.HOST;
-// const baseUrl = '/';
-const baseUrl = process.env.BASE_URL || `http://${host}${port ? ':' + port : ''}/`;
-const baseApiUrl = baseUrl + 'api/';
+
+const baseUrl = process.env.BASE_URL || `http://${host}${port ? ':' + port : ''}`;
+const clientUrl = process.env.CLIENT_HOST;
+
 const shopHost = process.env.SHOP_HOST;
 
-const serverBaseUrl = process.env.SERVER;
+const crmUrl = process.env.SERVER;
 // Add non-test environment plugins
 const testPlugins = [
   new webpack.DefinePlugin({
@@ -37,14 +38,14 @@ module.exports = {
   env: {
     type: environment,
     host,
-    serverBaseUrl,
+    crmUrl,
     port,
     baseUrl,
-    baseApiUrl,
+    clientUrl,
     shopHost
   },
   head: {
-    title: 'My app',
+    title: 'Crafteam',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' }]
   },

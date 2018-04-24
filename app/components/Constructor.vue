@@ -7,7 +7,7 @@
         .constructor__color(:style='"background-color:" + item.c.value')
         span {{ item.o.name }}
       .constructor__value(v-else-if='item.s.type === 2')
-        img.constructor__image(:src='$store.state.serverUrl + item.c.value')
+        img.constructor__image(:src='$store.state.crmUrl + item.c.value')
       .constructor__value(v-else) {{ item.o.name }}
 
     template(v-else='item.c.isLocked')
