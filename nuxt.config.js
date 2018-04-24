@@ -17,7 +17,6 @@ const port = process.env.PORT;
 const host = process.env.HOST;
 
 const baseUrl = process.env.BASE_URL || `http://${host}${port ? ':' + port : ''}`;
-const clientUrl = process.env.CLIENT_HOST;
 
 const shopHost = process.env.SHOP_HOST;
 
@@ -41,7 +40,6 @@ module.exports = {
     crmUrl,
     port,
     baseUrl,
-    clientUrl,
     shopHost
   },
   head: {
