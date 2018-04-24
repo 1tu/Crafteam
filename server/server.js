@@ -10,11 +10,11 @@ const api = require('./api');
 const config = require('../nuxt.config.js');
 const nuxt = new Nuxt(config);
 
-const sHost = config.env.clientUrl.split('.');
+const sHost = config.env.shopHost.split('.');
 
 app.use(
   cors({
-    origin: [new RegExp(config.env.host), !config.dev ? new RegExp(sHost[0] + '[^.]*' + `\.${sHost[1]}`) : null],
+    origin: [new RegExp(config.env.host), !config.dev ? new RegExp('http://' + sHost[0] + '[^.]*' + `\.${sHost[1]}`) : null],
     methods: 'GET,POST',
     preflightContinue: false,
     optionsSuccessStatus: 204

@@ -8,7 +8,6 @@ import { ProductStoreState } from './modules/product/product.storeState';
 export interface State {
   crmUrl: string;
   baseUrl: string;
-  clientUrl: string;
   city: CityEntity;
   shop: ShopEntity;
 }
