@@ -13,7 +13,6 @@ import { cityFromHost } from '../shared/helpers/cityFromHost.helper';
 const state = (): rootState => ({
   crmUrl: null,
   baseUrl: null,
-  clientUrl: null,
   shop: null,
   city: null
 });
@@ -21,7 +20,7 @@ const pureState = state();
 
 const getters = getter(pureState, {
   baseApiUrl(state) {
-    return ((process as any).client ? state.clientUrl : state.baseUrl) + '/api/';
+    return (process as any).client ? '/api/' : state.baseUrl + '/api/';
   },
   head(state) {
     return (meta: SeoMetaEntity) => {
@@ -44,9 +43,6 @@ const mutations = mutation(pureState, {
   baseUrl(state, baseUrl: string) {
     state.baseUrl = baseUrl;
   },
-  clientUrl(state, clientUrl: string) {
-    state.clientUrl = clientUrl;
-  },
   crmUrl(state, crmUrl: string) {
     state.crmUrl = crmUrl;
   },
@@ -61,7 +57,6 @@ const mutations = mutation(pureState, {
 const actions = action(pureState, {
   async nuxtServerInit({ getters, commit, dispatch }, ctx: Context) {
     commit(types.mutation.baseUrl, ctx.env.baseUrl);
-    commit(types.mutation.clientUrl, ctx.env.clientUrl);
     commit(types.mutation.crmUrl, ctx.env.crmUrl);
     const host = ctx.req ? (ctx.req.headers as any).host : window.location.host;
     const city = ctx.isDev ? host.split('.')[0] : cityFromHost(host);
