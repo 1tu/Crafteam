@@ -11,14 +11,18 @@ import { tText } from '../shared/helpers/tText.helper';
 import { cityFromHost } from '../shared/helpers/cityFromHost.helper';
 
 const state = (): rootState => ({
-  serverUrl: null,
-  baseApiUrl: null,
+  crmUrl: null,
+  baseUrl: null,
+  clientUrl: null,
   shop: null,
   city: null
 });
 const pureState = state();
 
 const getters = getter(pureState, {
+  baseApiUrl(state) {
+    return ((process as any).client ? state.clientUrl : state.baseUrl) + '/api/';
+  },
   head(state) {
     return (meta: SeoMetaEntity) => {
       if (!meta) return {};
@@ -37,11 +41,14 @@ const getters = getter(pureState, {
 });
 
 const mutations = mutation(pureState, {
-  baseApiUrl(state, baseApiUrl: string) {
-    state.baseApiUrl = baseApiUrl;
+  baseUrl(state, baseUrl: string) {
+    state.baseUrl = baseUrl;
   },
-  serverUrl(state, serverUrl: string) {
-    state.serverUrl = serverUrl;
+  clientUrl(state, clientUrl: string) {
+    state.clientUrl = clientUrl;
+  },
+  crmUrl(state, crmUrl: string) {
+    state.crmUrl = crmUrl;
   },
   shop(state, shop: ShopEntity) {
     state.shop = shop;
@@ -52,14 +59,15 @@ const mutations = mutation(pureState, {
 });
 
 const actions = action(pureState, {
-  async nuxtServerInit({ commit, dispatch }, ctx: Context) {
-    commit(types.mutation.baseApiUrl, ctx.env.baseApiUrl);
-    commit(types.mutation.serverUrl, ctx.env.serverBaseUrl);
+  async nuxtServerInit({ getters, commit, dispatch }, ctx: Context) {
+    commit(types.mutation.baseUrl, ctx.env.baseUrl);
+    commit(types.mutation.clientUrl, ctx.env.clientUrl);
+    commit(types.mutation.crmUrl, ctx.env.crmUrl);
     const host = ctx.req ? (ctx.req.headers as any).host : window.location.host;
     const city = ctx.isDev ? host.split('.')[0] : cityFromHost(host);
     const res = await Promise.all([
-      axios.get(ctx.env.baseApiUrl + 'shop/byHost', { params: { host: 'craft.ru' } }),
-      axios.get(ctx.env.baseApiUrl + 'city/byNameTranslit', { params: { nameTranslit: city } })
+      axios.get(getters.baseApiUrl + 'shop/byHost', { params: { host: 'craft.ru' } }),
+      axios.get(getters.baseApiUrl + 'city/byNameTranslit', { params: { nameTranslit: city } })
     ]);
     if (!res[0].data.cityList.find(c => c.nameTranslit === city)) {
       ctx.error({ statusCode: 404, message: 'Нет такого города' });

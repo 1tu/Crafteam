@@ -7,7 +7,7 @@
           .product__info
             h1.mt-0.mb-4 {{ $store.getters.tText($store.state.Product.item.seoTemplate.h1, $store.state.Product.item.seoMeta) }}
             .slider
-              .slider__item(:style="{'background-image': 'url('+ $store.state.serverUrl + getConfigValueByKey('form') +')'}")
+              .slider__item(:style="{'background-image': 'url('+ $store.state.crmUrl + getConfigValueByKey('form') +')'}")
             h4 Рекомендованая конфигурация
             p Композитная адресная вывеска на дом с ламинированием, размер 60х32: Редактируемый шаблон текста. Размер подтягивается из размера (стандарт).
 
